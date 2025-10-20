@@ -1,42 +1,47 @@
-/* Base page */
-body {
-  font-family:'Inter', sans-serif;
-  line-height:1.6;
-  background-color:#0a0a0a;  /* dark background */
-  color:#e0e0e0;
-  scroll-behavior:smooth;
+/* Base Colors */
+body, section, header, footer, .container, .skill-card, .project-card, .experience-card, .education-card {
+    background-color: #0a0a0a; /* dark background */
+    color: #e0e0e0;           /* light text */
 }
 
-/* Cards (Skills, Projects, Education, Certifications, Contact) */
-.skill-card,
-.project-card,
-.experience-card,
-.education-card,
-.cert-card,
-.contact-card {
-  background-color: #ffffff;   /* white card */
-  color: #111111;              /* dark text inside card */
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  transition: 0.5s;
-  cursor: pointer;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #e0e0e0;
 }
 
-.skill-card:hover,
-.project-card:hover,
-.experience-card:hover,
-.education-card:hover,
-.cert-card:hover,
-.contact-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 12px 35px rgba(107,33,168,0.3);
+/* Paragraphs */
+p {
+    color: #d4d4d4;
 }
 
-/* Section containers to hold the cards */
-section .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+/* Links */
+a {
+    color: #7c3aed; /* purple links */
+    text-decoration: none;
+}
+a:hover {
+    color: #facc15; /* yellow on hover */
+    text-decoration: underline;
+}
+
+/* Lists */
+ul, li {
+    color: #e0e0e0;
+}
+
+/* Cards & Sections */
+.skill-card, .project-card, .experience-card, .education-card {
+    background-color: #1a1a1a; /* slightly lighter than body */
+    color: #e0e0e0;
+}
+
+/* Footer */
+footer {
+    background-color: #111111;
+    color: #e0e0e0;
+}
+
+/* Buttons */
+.btn, .btn-outline {
+    color: white;
 }
