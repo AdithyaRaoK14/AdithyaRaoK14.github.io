@@ -1,159 +1,42 @@
-/* ===== Base Reset ===== */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* Base page */
 body {
-    font-family:'Inter', sans-serif;
-    line-height:1.6;
-    background-color:#0a0a0a;  /* true dark background */
-    color:#e0e0e0;             /* soft light text */
-    scroll-behavior:smooth;
+  font-family:'Inter', sans-serif;
+  line-height:1.6;
+  background-color:#0a0a0a;  /* dark background */
+  color:#e0e0e0;
+  scroll-behavior:smooth;
 }
 
-/* ===== Buttons ===== */
-.btn {
-    padding:12px 25px;
-    background:#6b21a8;
-    color:white;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:600;
-    margin:10px 5px;
-    transition:0.3s;
-    box-shadow:0 4px 15px rgba(107,33,168,0.5);
-}
-.btn:hover {
-    background:#4c1d95;
-    box-shadow:0 6px 25px rgba(107,33,168,0.7);
-}
-.btn-outline {
-    background:none;
-    border:2px solid #6b21a8;
-    color:#6b21a8;
-}
-.btn-outline:hover {
-    background:#6b21a8;
-    color:white;
-    box-shadow:0 6px 25px rgba(107,33,168,0.7);
+/* Cards (Skills, Projects, Education, Certifications, Contact) */
+.skill-card,
+.project-card,
+.experience-card,
+.education-card,
+.cert-card,
+.contact-card {
+  background-color: #ffffff;   /* white card */
+  color: #111111;              /* dark text inside card */
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transition: 0.5s;
+  cursor: pointer;
 }
 
-/* ===== Header / Hero ===== */
-header {
-    text-align:center;
-    padding:120px 20px;
-    background:#111111;
-    color:#e0e0e0;
-}
-header h1 span {
-    color:#facc15;
-}
-header p {
-    margin:15px 0 25px;
-    font-size:1.2rem;
-    color:#d4d4d4;
-}
-.social-links a {
-    margin:0 10px;
-    font-size:1.3rem;
-    color:#e0e0e0;
-    transition:0.3s;
-}
-.social-links a:hover {
-    color:#facc15;
-    transform:scale(1.2);
+.skill-card:hover,
+.project-card:hover,
+.experience-card:hover,
+.education-card:hover,
+.cert-card:hover,
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(107,33,168,0.3);
 }
 
-/* Hero Animation */
-@keyframes float {
-    0%,100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-.hero-container h1, .hero-container p, .hero-buttons {
-    animation: float 3s ease-in-out infinite;
-}
-
-/* ===== Sections ===== */
-section {
-    padding:80px 20px;
-    background-color:#0a0a0a;
-    transition:0.5s;
-}
-section h2 {
-    text-align:center;
-    margin-bottom:50px;
-    color:#6b21a8;
-    font-size:2rem;
-}
-
-/* ===== Cards ===== */
-.skill-card, .project-card, .experience-card, .education-card, .cert-card, .contact-card {
-    background-color:#1e1e1e;  /* slightly lighter than body */
-    padding:25px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.8);
-    transition:0.5s;
-    cursor:pointer;
-    color:#e0e0e0;
-}
-.skill-card:hover, .project-card:hover, .experience-card:hover, .education-card:hover, .cert-card:hover, .contact-card:hover {
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 12px 35px rgba(107,33,168,0.7);
-}
-
-/* ===== Skill Icons ===== */
-.skill-card i {
-    font-size:2rem;
-    margin-bottom:10px;
-    color:#6b21a8;
-    transition:0.3s;
-}
-.skill-card:hover i {
-    color:#facc15;
-    transform:rotate(10deg);
-}
-
-/* ===== Project Links ===== */
-.project-card a, .cert-card a, .contact-card a {
-    color:#6b21a8;
-    text-decoration:none;
-    transition:0.3s;
-}
-.project-card a:hover, .cert-card a:hover, .contact-card a:hover {
-    color:#facc15;
-    text-decoration:underline;
-}
-
-/* ===== Text Elements ===== */
-h1, h2, h3, h4, h5, h6 {
-    color:#e0e0e0;
-}
-p {
-    color:#d4d4d4;
-}
-
-/* Lists */
-ul, li {
-    color:#e0e0e0;
-}
-.certifications-list li {
-    margin-bottom:10px;
-}
-
-/* ===== Footer ===== */
-footer {
-    text-align:center;
-    padding:30px 20px;
-    background-color:#111111;
-    color:#e0e0e0;
-    margin-top:50px;
-}
-
-/* ===== Fade-in on scroll ===== */
-section {
-    opacity:0;
-    transform:translateY(20px);
-    transition:0.8s ease-in-out;
-}
-section.visible {
-    opacity:1;
-    transform:translateY(0);
+/* Section containers to hold the cards */
+section .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
