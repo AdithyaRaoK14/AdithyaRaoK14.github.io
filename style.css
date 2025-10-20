@@ -25,6 +25,17 @@ header {
   background: linear-gradient(135deg, #1a1a1a, #111111);
 }
 
+/* Profile Photo */
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #7c3aed;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+  margin-bottom: 1.5rem;
+}
+
 header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
@@ -91,7 +102,7 @@ h2 {
 }
 
 /* ==============================
-   Card Design (Shared Across Sections)
+   Card Design
    ============================== */
 .skill-card,
 .project-card,
@@ -122,7 +133,7 @@ h2 {
    ============================== */
 .skills-grid,
 .projects-grid,
-.certifications-grid,
+.cert-grid,
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
