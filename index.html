@@ -4,21 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adithya Rao Kalathur | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <!-- Header / Hero -->
   <header>
-    <div class="container">
+    <div class="hero-container">
       <h1>Hi, I'm <span>Adithya Rao Kalathur</span></h1>
       <p>Full Stack Developer | Cybersecurity & Data Analytics Enthusiast</p>
-      <div class="contact-links">
-        <a href="mailto:aditykr142@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-        <a href="tel:+916362290372"><i class="fas fa-phone"></i> Call</a>
-        <a href="https://github.com/AdithyaRaoK14" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://linkedin.com/in/adithya-rao-kalathur" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <div class="hero-buttons">
+        <a href="resume.pdf" download class="btn">Download Resume</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+      <div class="social-links">
+        <a href="mailto:aditykr142@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+916362290372"><i class="fas fa-phone"></i></a>
+        <a href="https://github.com/AdithyaRaoK14" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/adithya-rao-kalathur" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
   </header>
@@ -36,27 +41,33 @@
     <div class="container">
       <h2>Technical Skills</h2>
       <div class="skills-grid">
-        <div>
+        <div class="skill-card">
+          <i class="fas fa-code"></i>
           <h3>Languages</h3>
           <p>Python, C/C++, Java, JavaScript</p>
         </div>
-        <div>
+        <div class="skill-card">
+          <i class="fas fa-laptop-code"></i>
           <h3>Web Development</h3>
           <p>React.js, Node.js, Express.js, HTML, CSS, Wix Studio</p>
         </div>
-        <div>
+        <div class="skill-card">
+          <i class="fas fa-database"></i>
           <h3>Databases</h3>
           <p>MySQL, PostgreSQL, MongoDB</p>
         </div>
-        <div>
+        <div class="skill-card">
+          <i class="fas fa-cloud"></i>
           <h3>Cloud Services</h3>
           <p>Google Cloud, AWS, Microsoft Azure</p>
         </div>
-        <div>
+        <div class="skill-card">
+          <i class="fas fa-shield-alt"></i>
           <h3>Security & Pen Testing</h3>
           <p>Network Security, Burp Suite, Wireshark, Kali Linux, Metasploitable</p>
         </div>
-        <div>
+        <div class="skill-card">
+          <i class="fas fa-chart-line"></i>
           <h3>Data Science & ETL</h3>
           <p>RapidMiner, Talend</p>
         </div>
@@ -68,19 +79,26 @@
   <section id="education">
     <div class="container">
       <h2>Education</h2>
-      <ul>
-        <li><strong>Manipal Institute of Technology</strong>, Udupi, India — B.Tech in CCE | CGPA: 7.06/10 (2024)</li>
-        <li><strong>Vidyodaya Pre-University College</strong>, Udupi, India — 12th Standard (Science) | 93.83% (2020)</li>
-        <li><strong>Little Rock Indian School</strong>, Udupi, India — 10th Standard | 83.4% (2018)</li>
-      </ul>
+      <div class="education-card">
+        <h3>Manipal Institute of Technology</h3>
+        <p>B.Tech in Computer & Communication Engineering | CGPA: 7.06/10 | 2024</p>
+      </div>
+      <div class="education-card">
+        <h3>Vidyodaya Pre-University College</h3>
+        <p>12th Standard (Science) | 93.83% | 2020</p>
+      </div>
+      <div class="education-card">
+        <h3>Little Rock Indian School</h3>
+        <p>10th Standard | 83.4% | 2018</p>
+      </div>
     </div>
   </section>
 
-  <!-- Internship / Experience Section -->
+  <!-- Internship Section -->
   <section id="experience">
     <div class="container">
       <h2>Internship</h2>
-      <div class="experience-item">
+      <div class="experience-card">
         <h3>Thaniya Technologies</h3>
         <p><em>Full Stack Web Development Intern | June 2023 – July 2023</em></p>
         <ul>
@@ -97,32 +115,31 @@
     <div class="container">
       <h2>Projects</h2>
       <div class="projects-grid">
-        <div class="project">
+        <div class="project-card">
           <h3><a href="https://github.com/AdithyaRaoK14/Enhancing-SQL-Injection-Detection-A-Comparative-Study-of-SVM-Random-Forest-and-Hybrid-Models" target="_blank">Enhancing SQL Injection Detection</a></h3>
           <ul>
-            <li>Empirical analysis of <strong>SVM, Random Forest, and Hybrid SVM-RF models</strong> to improve SQL injection detection.</li>
+            <li>Empirical analysis of SVM, Random Forest, and Hybrid SVM-RF models.</li>
             <li>Hybrid SVM-RF achieved superior accuracy and precision.</li>
           </ul>
         </div>
-        <div class="project">
+        <div class="project-card">
           <h3><a href="https://github.com/AdithyaRaoK14/Movie-Review-and-Recommendation-System" target="_blank">Movie Recommendation and Review System</a></h3>
           <ul>
-            <li>Scalable <strong>React.js</strong> frontend and <strong>PostgreSQL</strong> backend via REST APIs.</li>
-            <li>AI-driven recommendation engine using user reviews and ratings.</li>
+            <li>React.js frontend & PostgreSQL backend via REST APIs.</li>
+            <li>AI-driven recommendation engine using reviews and ratings.</li>
           </ul>
         </div>
-        <div class="project">
+        <div class="project-card">
           <h3><a href="https://github.com/AdithyaRaoK14/Video-Game-Sales-Analysis" target="_blank">Video Game Sales Analysis</a></h3>
           <ul>
-            <li>Analyzed global video game sales trends using <strong>Python</strong> and <strong>Pandas</strong>.</li>
-            <li>Extracted insights across regions, genres, and platforms.</li>
+            <li>Analyzed global video game sales trends using Python and Pandas.</li>
           </ul>
         </div>
-        <div class="project">
+        <div class="project-card">
           <h3><a href="https://github.com/AdithyaRaoK14/Resident-Alert-and-Complaint-Management-System" target="_blank">Resident Alert & Complaint Management System</a></h3>
           <ul>
-            <li>Real-time complaint management system with <strong>React.js</strong> and <strong>MongoDB</strong>.</li>
-            <li>Admin dashboard to streamline issue resolution and improve response efficiency.</li>
+            <li>Real-time complaint management system using React.js and MongoDB.</li>
+            <li>Admin dashboard to streamline issue resolution.</li>
           </ul>
         </div>
       </div>
@@ -133,7 +150,7 @@
   <section id="certifications">
     <div class="container">
       <h2>Certifications</h2>
-      <ul>
+      <ul class="certifications-list">
         <li><a href="https://coursera.org/share/d62c916d6c815a5118f89c7a89286f8a" target="_blank">Google Cybersecurity (2024)</a></li>
         <li><a href="https://coursera.org/share/9c2688e1a58cf50cd82395ea423c50b0" target="_blank">UC San Diego Big Data (2023)</a></li>
         <li><a href="https://coursera.org/share/9c2688e1a58cf50cd82395d1e4e2e3b6" target="_blank">Google Data Analytics (2024)</a></li>
@@ -152,9 +169,9 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Adithya Rao Kalathur. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
