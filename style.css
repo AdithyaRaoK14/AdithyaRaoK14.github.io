@@ -43,7 +43,7 @@ header {
     color:#e0e0e0;
 }
 header h1 span {
-    color:#facc15; /* hero name highlight */
+    color:#facc15;
 }
 header p {
     margin:15px 0 25px;
@@ -84,8 +84,8 @@ section h2 {
 }
 
 /* ===== Cards ===== */
-.skill-card, .project-card, .experience-card, .education-card {
-    background-color:#1a1a1a;
+.skill-card, .project-card, .experience-card, .education-card, .cert-card, .contact-card {
+    background-color:#1e1e1e;  /* slightly lighter than body */
     padding:25px;
     border-radius:12px;
     text-align:center;
@@ -94,7 +94,7 @@ section h2 {
     cursor:pointer;
     color:#e0e0e0;
 }
-.skill-card:hover, .project-card:hover, .experience-card:hover, .education-card:hover {
+.skill-card:hover, .project-card:hover, .experience-card:hover, .education-card:hover, .cert-card:hover, .contact-card:hover {
     transform:translateY(-10px) scale(1.02);
     box-shadow:0 12px 35px rgba(107,33,168,0.7);
 }
@@ -112,12 +112,12 @@ section h2 {
 }
 
 /* ===== Project Links ===== */
-.project-card a {
+.project-card a, .cert-card a, .contact-card a {
     color:#6b21a8;
     text-decoration:none;
     transition:0.3s;
 }
-.project-card a:hover {
+.project-card a:hover, .cert-card a:hover, .contact-card a:hover {
     color:#facc15;
     text-decoration:underline;
 }
@@ -128,12 +128,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 p {
     color:#d4d4d4;
-}
-a {
-    color:#7c3aed;
-}
-a:hover {
-    color:#facc15;
 }
 
 /* Lists */
