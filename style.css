@@ -1,4 +1,6 @@
-/* Base */
+/* ==============================
+   Base Styling
+   ============================== */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -14,7 +16,9 @@ body {
   padding: 3rem 1rem;
 }
 
-/* Header */
+/* ==============================
+   Header / Hero
+   ============================== */
 header {
   text-align: center;
   padding: 6rem 1rem 4rem;
@@ -35,6 +39,7 @@ header p {
   color: #d4d4d4;
 }
 
+/* Buttons */
 .hero-buttons {
   margin: 1.5rem 0;
 }
@@ -64,6 +69,7 @@ header p {
   background: #7c3aed;
 }
 
+/* Social Icons */
 .social-links a {
   margin: 0 10px;
   color: #e0e0e0;
@@ -75,19 +81,23 @@ header p {
   color: #facc15;
 }
 
-/* Section Titles */
+/* ==============================
+   Section Titles
+   ============================== */
 h2 {
   color: #facc15;
   text-align: center;
   margin-bottom: 1rem;
 }
 
-/* Shared Cards */
-.skill-card, 
-.project-card, 
-.experience-card, 
-.education-card, 
-.cert-card, 
+/* ==============================
+   Card Design (Shared Across Sections)
+   ============================== */
+.skill-card,
+.project-card,
+.experience-card,
+.education-card,
+.cert-card,
 .contact-card {
   background-color: #1a1a1a;
   border-radius: 10px;
@@ -97,26 +107,31 @@ h2 {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.skill-card:hover, 
-.project-card:hover, 
-.experience-card:hover, 
-.cert-card:hover, 
+.skill-card:hover,
+.project-card:hover,
+.experience-card:hover,
+.education-card:hover,
+.cert-card:hover,
 .contact-card:hover {
   transform: scale(1.03);
   box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
 }
 
-/* Grids */
-.skills-grid, 
-.projects-grid, 
-.cert-grid, 
+/* ==============================
+   Grid Layouts
+   ============================== */
+.skills-grid,
+.projects-grid,
+.certifications-grid,
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
 
-/* Certifications */
+/* ==============================
+   Certifications Section
+   ============================== */
 .cert-card {
   text-align: center;
 }
@@ -126,25 +141,34 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-.cert-card .cert-link {
+.cert-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
   color: #7c3aed;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
 }
 
-.cert-card .cert-link:hover {
+.cert-card a:hover {
   color: #facc15;
   text-decoration: underline;
 }
 
-/* Contact */
-.contact-grid .contact-card {
+/* ==============================
+   Contact Section
+   ============================== */
+.contact-card {
   text-align: center;
 }
 
 .contact-card h3 {
   color: #facc15;
   margin-bottom: 0.5rem;
+}
+
+.contact-card p {
+  color: #d4d4d4;
+  font-size: 0.95rem;
 }
 
 .contact-card a {
@@ -158,7 +182,9 @@ h2 {
   text-decoration: underline;
 }
 
-/* Footer */
+/* ==============================
+   Footer
+   ============================== */
 footer {
   background-color: #111111;
   color: #d4d4d4;
@@ -168,7 +194,9 @@ footer {
   border-top: 1px solid #2a2a2a;
 }
 
-/* Links */
+/* ==============================
+   General Links
+   ============================== */
 a {
   color: #7c3aed;
   text-decoration: none;
