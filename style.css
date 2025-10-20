@@ -82,12 +82,12 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* Cards (Shared Design) */
+/* Shared Cards */
 .skill-card, 
 .project-card, 
 .experience-card, 
 .education-card, 
-.certificate-card, 
+.cert-card, 
 .contact-card {
   background-color: #1a1a1a;
   border-radius: 10px;
@@ -100,7 +100,7 @@ h2 {
 .skill-card:hover, 
 .project-card:hover, 
 .experience-card:hover, 
-.certificate-card:hover, 
+.cert-card:hover, 
 .contact-card:hover {
   transform: scale(1.03);
   box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
@@ -109,29 +109,35 @@ h2 {
 /* Grids */
 .skills-grid, 
 .projects-grid, 
-.certificates-grid, 
+.cert-grid, 
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
 
-/* Certificates Section */
-.certificates-grid .certificate-card {
+/* Certifications */
+.cert-card {
   text-align: center;
 }
 
-.certificate-card h3 {
+.cert-card h3 {
   color: #facc15;
   margin-bottom: 0.5rem;
 }
 
-.certificate-card p {
-  color: #d4d4d4;
-  font-size: 0.95rem;
+.cert-card .cert-link {
+  color: #7c3aed;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-/* Contact Section */
+.cert-card .cert-link:hover {
+  color: #facc15;
+  text-decoration: underline;
+}
+
+/* Contact */
 .contact-grid .contact-card {
   text-align: center;
 }
@@ -139,11 +145,6 @@ h2 {
 .contact-card h3 {
   color: #facc15;
   margin-bottom: 0.5rem;
-}
-
-.contact-card p {
-  color: #d4d4d4;
-  font-size: 0.95rem;
 }
 
 .contact-card a {
