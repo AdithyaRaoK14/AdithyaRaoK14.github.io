@@ -3,146 +3,669 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adithya Rao Kalathur | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Adithya Rao Kalathur | Full Stack Developer & AI Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Header / Hero -->
-  <header>
-    <div class="hero-container">
-      <img src="profile.jpg" alt="Adithya Rao Kalathur" class="profile-photo">
-      <h1>Hi, I'm <span>Adithya Rao Kalathur</span></h1>
-      <p>Full Stack Developer | Cybersecurity & Data Analytics Enthusiast</p>
-      <div class="hero-buttons">
-        <a href="resume.pdf" download class="btn">Download Resume</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">AR<span>K</span></a>
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </div>
-      <div class="social-links">
-        <a href="mailto:aditykr142@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="tel:+916362290372"><i class="fas fa-phone"></i></a>
-        <a href="https://github.com/AdithyaRaoK14" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/adithya-rao-kalathur" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- About -->
-  <section id="about">
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-particles"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="greeting">👋 Welcome to my digital space</div>
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Adithya Rao Kalathur</span>
+        </h1>
+        <div class="typing-container">
+          <span class="typing-text" id="typingText"></span>
+          <span class="cursor">|</span>
+        </div>
+        <p class="hero-description">
+          Computer Science Student passionate about AI, Machine Learning, and building scalable systems that make a difference. Transforming ideas into intelligent solutions.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <span>View My Work</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span>Get In Touch</span>
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        <div class="hero-social">
+          <a href="https://github.com/AdithyaRaoK14" target="_blank" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/adithya-rao-kalathur-7b5727221" target="_blank" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:aditykr142@gmail.com" class="social-icon" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="tel:+916362290372" class="social-icon" aria-label="Phone">
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="profile-container">
+          <img src="profile.jpg" alt="Adithya Rao Kalathur" class="profile-img">
+          <div class="profile-ring"></div>
+          <div class="profile-ring-2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about-section">
     <div class="container">
-      <h2>About Me</h2>
-      <div class="about-card">
-        <p>Passionate Full Stack Developer skilled in <strong>Python, C/C++, Java, JavaScript, React.js</strong>. Experienced in <strong>web development, data analysis, cloud computing, and cybersecurity</strong>. Enthusiastic about building scalable, efficient, and secure software solutions.</p>
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="card-icon">💻</div>
+          <h3>Full-Stack Developer</h3>
+          <p>Building end-to-end applications with modern frameworks and scalable architectures</p>
+        </div>
+        <div class="about-card">
+          <div class="card-icon">🤖</div>
+          <h3>AI/ML Engineer</h3>
+          <p>Creating intelligent systems using deep learning and advanced algorithms</p>
+        </div>
+        <div class="about-card">
+          <div class="card-icon">📊</div>
+          <h3>Data Analyst</h3>
+          <p>Transforming raw data into actionable insights and compelling visualizations</p>
+        </div>
+        <div class="about-card">
+          <div class="card-icon">🔒</div>
+          <h3>Cybersecurity Enthusiast</h3>
+          <p>Researching security vulnerabilities and building robust defense systems</p>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Who I Am</h3>
+          <p>I'm a Computer Science student from Udupi, Karnataka, India, with a deep passion for technology and innovation. My journey in tech spans across multiple domains - from developing full-stack applications to building AI models that solve real-world problems.</p>
+          <p>With expertise in Python, Java, JavaScript, and modern frameworks like React and Node.js, I create solutions that are not just functional, but elegant and scalable. My work in AI/ML, particularly in medical imaging and computer vision, demonstrates my commitment to using technology for social impact.</p>
+          <p class="quote">"Code is poetry, debugging is the art"</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Major Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">8+</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
+  <!-- Skills Section -->
+  <section id="skills" class="section skills-section">
     <div class="container">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card"><i class="fas fa-code"></i><h3>Languages</h3><p>Python, C/C++, Java, JavaScript</p></div>
-        <div class="skill-card"><i class="fas fa-laptop-code"></i><h3>Web Development</h3><p>React.js, Node.js, Express.js, HTML, CSS, Wix Studio</p></div>
-        <div class="skill-card"><i class="fas fa-database"></i><h3>Databases</h3><p>MySQL, PostgreSQL, MongoDB</p></div>
-        <div class="skill-card"><i class="fas fa-cloud"></i><h3>Cloud Services</h3><p>Google Cloud, AWS, Microsoft Azure</p></div>
-        <div class="skill-card"><i class="fas fa-shield-alt"></i><h3>Security & Pen Testing</h3><p>Network Security, Burp Suite, Wireshark, Kali Linux</p></div>
-        <div class="skill-card"><i class="fas fa-chart-line"></i><h3>Data Science & ETL</h3><p>RapidMiner, Talend</p></div>
+      <div class="section-header">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-container">
+        <div class="skill-category">
+          <div class="category-header">
+            <i class="fas fa-code"></i>
+            <h3>Programming Languages</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="category-header">
+            <i class="fas fa-brain"></i>
+            <h3>AI/ML & Data Science</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">XGBoost</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="category-header">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Web Development</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">.NET</span>
+            <span class="skill-tag">Scrapy</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="category-header">
+            <i class="fas fa-database"></i>
+            <h3>Databases & Cloud</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Google Cloud</span>
+            <span class="skill-tag">Azure</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="category-header">
+            <i class="fas fa-tools"></i>
+            <h3>Tools & Technologies</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Postman</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Education -->
-  <section id="education">
+  <!-- Projects Section -->
+  <section id="projects" class="section projects-section">
     <div class="container">
-      <h2>Education</h2>
-      <div class="education-card"><h3>Manipal Institute of Technology</h3><p>B.Tech in Computer & Communication Engineering | CGPA: 7.06/10 | 2024</p></div>
-      <div class="education-card"><h3>Vidyodaya Pre-University College</h3><p>12th Standard (Science) | 93.83% | 2020</p></div>
-      <div class="education-card"><h3>Little Rock Indian School</h3><p>10th Standard | 83.4% | 2018</p></div>
-    </div>
-  </section>
-
-  <!-- Internship -->
-  <section id="experience">
-    <div class="container">
-      <h2>Internship</h2>
-      <div class="experience-card">
-        <h3>Thaniya Technologies</h3>
-        <p><em>Full Stack Web Development Intern | June 2023 – July 2023</em></p>
-        <ul>
-          <li>Developed a React.js & PostgreSQL movie recommendation platform.</li>
-          <li>Enhanced UI performance by 30% and implemented sentiment-based reviews.</li>
-        </ul>
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Showcasing my best work in AI/ML, Web Development, and Cybersecurity</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
       <div class="projects-grid">
-        <div class="project-card"><h3><a href="https://github.com/AdithyaRaoK14/Enhancing-SQL-Injection-Detection-A-Comparative-Study-of-SVM-Random-Forest-and-Hybrid-Models" target="_blank">SQL Injection Detection</a></h3><p>Compared SVM, Random Forest, and Hybrid models for intrusion detection.</p></div>
-        <div class="project-card"><h3><a href="https://github.com/AdithyaRaoK14/Movie-Review-and-Recommendation-System" target="_blank">Movie Review System</a></h3><p>React.js frontend + PostgreSQL backend using REST APIs with AI-driven recommendations.</p></div>
-        <div class="project-card"><h3><a href="https://github.com/AdithyaRaoK14/Video-Game-Sales-Analysis" target="_blank">Video Game Sales Analysis</a></h3><p>Analyzed sales trends globally using Python & Pandas.</p></div>
-        <div class="project-card"><h3><a href="https://github.com/AdithyaRaoK14/Resident-Alert-and-Complaint-Management-System" target="_blank">Resident Alert System</a></h3><p>Complaint management system with admin dashboard (React.js + MongoDB).</p></div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="https://github.com/AdithyaRaoK14/Development-of-Deep-Learning-Approach-for-Grading-Squamous-Cell-Carcinoma-from-Histopathology-Images" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Medical AI</span>
+            </div>
+            <h3>Cancer Grading with Deep Learning</h3>
+            <p>Automated grading of squamous cell carcinoma from histopathology images using EfficientNetB0 and transfer learning techniques.</p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>TensorFlow</span>
+              <span>Computer Vision</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="https://github.com/AdithyaRaoK14/Enhancing-Night-Vision-Using-ML" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Computer Vision</span>
+              <span class="tag">ML</span>
+            </div>
+            <h3>Night Vision Enhancement</h3>
+            <p>ML-powered system using U-Net and Residual U-Net architectures for superior low-light image processing and enhancement.</p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>U-Net</span>
+              <span>OpenCV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="https://github.com/AdithyaRaoK14/Network-Anomaly-Detection-Using-ML-Models" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Cybersecurity</span>
+              <span class="tag">ML</span>
+            </div>
+            <h3>Network Anomaly Detection</h3>
+            <p>Real-time network intrusion detection system using ensemble ML methods for binary and multiclass threat classification.</p>
+            <div class="project-tech">
+              <span>Random Forest</span>
+              <span>XGBoost</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="https://github.com/AdithyaRaoK14/Enhancing-SQL-Injection-Detection-A-Comparative-Study-of-SVM-Random-Forest-and-Hybrid-Models" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Security</span>
+              <span class="tag">ML</span>
+            </div>
+            <h3>SQL Injection Detection</h3>
+            <p>Comparative ML study implementing SVM, Random Forest, and hybrid models for enterprise-grade SQL injection detection.</p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>SVM</span>
+              <span>Scikit-Learn</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="https://github.com/AdithyaRaoK14/Movie-Review-and-Recommendation-System" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Web Dev</span>
+              <span class="tag">NLP</span>
+            </div>
+            <h3>Movie Recommendation System</h3>
+            <p>NLP-powered platform with sentiment analysis and collaborative filtering for personalized movie recommendations.</p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>PostgreSQL</span>
+              <span>NLP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <a href="https://github.com/AdithyaRaoK14/Hospital-Management-System-using-Python" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Full Stack</span>
+              <span class="tag">Healthcare</span>
+            </div>
+            <h3>Hospital Management System</h3>
+            <p>Complete healthcare platform with patient records, appointment scheduling, and integrated billing system.</p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Tkinter</span>
+              <span>MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="view-all">
+        <a href="https://github.com/AdithyaRaoK14" target="_blank" class="btn btn-outline">
+          View All Projects on GitHub
+          <i class="fab fa-github"></i>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Certifications -->
-  <section id="certifications">
+  <!-- Experience Section -->
+  <section id="experience" class="section experience-section">
     <div class="container">
-      <h2>Certifications</h2>
-      <div class="cert-grid">
-        <div class="cert-card">
-          <h3>Google Cybersecurity (2024)</h3>
-          <a href="https://coursera.org/share/d62c916d6c815a5118f89c7a89286f8a" target="_blank" class="cert-link">View Certificate</a>
+      <div class="section-header">
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">June 2023 - July 2023</div>
+            <h3>Full Stack Web Development Intern</h3>
+            <h4>Thaniya Technologies</h4>
+            <ul>
+              <li>Developed a React.js & PostgreSQL movie recommendation platform with AI-powered features</li>
+              <li>Enhanced UI performance by 30% through optimization techniques</li>
+              <li>Implemented sentiment-based review analysis using NLP</li>
+            </ul>
+          </div>
         </div>
-        <div class="cert-card">
-          <h3>UC San Diego Big Data (2023)</h3>
-          <a href="https://coursera.org/share/9c2688e1a58cf50cd82395ea423c50b0" target="_blank" class="cert-link">View Certificate</a>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2020 - 2024</div>
+            <h3>B.Tech in Computer & Communication Engineering</h3>
+            <h4>Manipal Institute of Technology</h4>
+            <p>CGPA: 7.06/10 | Focus on AI/ML, Cybersecurity, and Full-Stack Development</p>
+          </div>
         </div>
-        <div class="cert-card">
-          <h3>Google Data Analytics (2024)</h3>
-          <a href="https://coursera.org/share/9c2688e1a58cf50cd82395d1e4e2e3b6" target="_blank" class="cert-link">View Certificate</a>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2018 - 2020</div>
+            <h3>12th Standard (Science)</h3>
+            <h4>Vidyodaya Pre-University College</h4>
+            <p>93.83% | Focused on Mathematics, Physics, and Computer Science</p>
+          </div>
         </div>
-        <div class="cert-card">
-          <h3>IBM Data Science (2024)</h3>
-          <a href="https://coursera.org/share/9c2688e1a58cf50cd82395d1e4e2e3b6" target="_blank" class="cert-link">View Certificate</a>
+      </div>
+
+      <div class="certifications">
+        <h3 class="subsection-title">Certifications</h3>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <i class="fas fa-certificate"></i>
+            <h4>Google Cybersecurity</h4>
+            <p>2024</p>
+          </div>
+          <div class="cert-card">
+            <i class="fas fa-certificate"></i>
+            <h4>Google Data Analytics</h4>
+            <p>2024</p>
+          </div>
+          <div class="cert-card">
+            <i class="fas fa-certificate"></i>
+            <h4>IBM Data Science</h4>
+            <p>2024</p>
+          </div>
+          <div class="cert-card">
+            <i class="fas fa-certificate"></i>
+            <h4>Generative AI with LLMs</h4>
+            <p>DeepLearning.AI</p>
+          </div>
+          <div class="cert-card">
+            <i class="fas fa-certificate"></i>
+            <h4>Big Data Specialization</h4>
+            <p>UC San Diego</p>
+          </div>
+          <div class="cert-card">
+            <i class="fas fa-certificate"></i>
+            <h4>Azure GitHub Workshop</h4>
+            <p>Microsoft</p>
+          </div>
         </div>
+        <a href="https://github.com/AdithyaRaoK14/AdithyaRaoK14-Adithya-Rao-Kalathur-Online-Course-Certifications" target="_blank" class="view-certs-link">
+          View All Certifications <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
     <div class="container">
-      <h2>Contact</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <i class="fas fa-envelope"></i>
-          <h3>Email</h3>
-          <p><a href="mailto:aditykr142@gmail.com">aditykr142@gmail.com</a></p>
+      <div class="section-header">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Open for opportunities and collaborations</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p>I'm actively seeking opportunities to contribute to innovative projects and collaborate with talented teams. Whether you have a project in mind or just want to chat about tech, feel free to reach out!</p>
+          <div class="contact-methods">
+            <a href="mailto:aditykr142@gmail.com" class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>aditykr142@gmail.com</p>
+              </div>
+            </a>
+            <a href="tel:+916362290372" class="contact-method">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Phone</h4>
+                <p>+91 6362290372</p>
+              </div>
+            </a>
+            <div class="contact-method">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Location</h4>
+                <p>Udupi, Karnataka, India</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-social">
+            <a href="https://github.com/AdithyaRaoK14" target="_blank" class="social-btn">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/adithya-rao-kalathur-7b5727221" target="_blank" class="social-btn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:aditykr142@gmail.com" class="social-btn">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
-        <div class="contact-card">
-          <i class="fas fa-phone"></i>
-          <h3>Phone</h3>
-          <p><a href="tel:+916362290372">+91 6362290372</a></p>
-        </div>
-        <div class="contact-card">
-          <i class="fas fa-location-dot"></i>
-          <h3>Location</h3>
-          <p>Udupi, Karnataka, India</p>
+        <div class="contact-cta">
+          <div class="cta-card">
+            <h3>What I'm Looking For</h3>
+            <div class="cta-items">
+              <div class="cta-item">
+                <i class="fas fa-robot"></i>
+                <p>AI/ML Engineering Roles</p>
+              </div>
+              <div class="cta-item">
+                <i class="fas fa-code"></i>
+                <p>Full-Stack Development</p>
+              </div>
+              <div class="cta-item">
+                <i class="fas fa-chart-line"></i>
+                <p>Data Science Opportunities</p>
+              </div>
+              <div class="cta-item">
+                <i class="fas fa-shield-alt"></i>
+                <p>Cybersecurity Projects</p>
+              </div>
+              <div class="cta-item">
+                <i class="fas fa-users"></i>
+                <p>Open-Source Collaborations</p>
+              </div>
+            </div>
+            <a href="resume.pdf" download class="btn btn-primary">
+              <i class="fas fa-download"></i>
+              Download Resume
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Adithya Rao Kalathur. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">
+          <p>Crafted with ❤️ and ☕ by Adithya Rao Kalathur</p>
+          <p class="footer-quote">"In a world of algorithms, be the one who codes with purpose"</p>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Adithya Rao Kalathur. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Navigation
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Typing Effect
+    const phrases = [
+      'Full Stack Developer',
+      'AI/ML Engineer',
+      'Data Scientist',
+      'Cybersecurity Enthusiast',
+      'Problem Solver'
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const pauseTime = 2000;
+
+    function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+      const typingText = document.getElementById('typingText');
+      
+      if (isDeleting) {
+        typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        setTimeout(() => isDeleting = true, pauseTime);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+
+      const speed = isDeleting ? deletingSpeed : typingSpeed;
+      setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.about-card, .project-card, .timeline-item, .skill-category').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
