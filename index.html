@@ -3,669 +3,1436 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adithya Rao Kalathur | Full Stack Developer & AI Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Adithya Rao Kalathur — ML Engineer & AI Systems Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg: #07090b;
+      --bg-card: #0d1117;
+      --bg-surface: #111820;
+      --border: rgba(240, 200, 100, 0.12);
+      --border-hover: rgba(240, 200, 100, 0.35);
+      --amber: #f0a500;
+      --amber-dim: rgba(240, 165, 0, 0.15);
+      --teal: #2dd4bf;
+      --teal-dim: rgba(45, 212, 191, 0.12);
+      --text-hi: #f0ece4;
+      --text-mid: #9ba3ae;
+      --text-lo: #525c68;
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-hi);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(7, 9, 11, 0.8);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-color: var(--border-hover); }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--text-hi);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo em { color: var(--amber); font-style: normal; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text-hi);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      align-items: center;
+      gap: 4rem;
+      padding: 8rem 6rem 6rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-bg-glow {
+      position: fixed;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,165,0,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-bg-glow-2 {
+      position: fixed;
+      bottom: -200px; left: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,212,191,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+    .hero-name .line2 { color: var(--amber); }
+
+    .hero-role {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--teal);
+      margin-bottom: 1.6rem;
+      min-height: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.35s forwards;
+    }
+    .cursor-blink {
+      animation: cursorBlink 1s step-end infinite;
+      color: var(--amber);
+    }
+    @keyframes cursorBlink { 50% { opacity: 0; } }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 540px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.5s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.65s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      background: var(--amber);
+      color: #07090b;
+      border-radius: 4px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: #ffc233; transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border: 1px solid var(--border-hover);
+      color: var(--text-hi);
+      border-radius: 4px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+
+    .hero-socials {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.8s forwards;
+    }
+    .hero-socials a {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-mid);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .hero-socials a:hover { border-color: var(--amber); color: var(--amber); }
+
+    /* Hero right card */
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.4s forwards;
+    }
+    .hero-card-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-lo);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1rem;
+      background: var(--bg-surface);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .stat-item:hover { border-color: var(--border-hover); }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-mid);
+    }
+    .stat-val {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--amber);
+    }
+    .stat-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: var(--teal-dim);
+      border: 1px solid rgba(45,212,191,0.3);
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--teal);
+    }
+
+    /* ── SECTION BASE ── */
+    .section {
+      padding: 6rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--amber);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+    .section-title span { color: var(--amber); }
+
+    /* Divider line */
+    .h-rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-mid);
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+    .about-text p strong { color: var(--text-hi); font-weight: 500; }
+    .about-quote {
+      margin-top: 2rem;
+      padding: 1.2rem 1.5rem;
+      border-left: 3px solid var(--amber);
+      background: var(--amber-dim);
+      border-radius: 0 6px 6px 0;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-hi);
+      font-style: italic;
+    }
+
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .about-stat-card {
+      padding: 1.4rem 1.6rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .about-stat-card:hover { border-color: var(--border-hover); transform: translateX(4px); }
+    .about-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: -0.03em;
+    }
+    .about-stat-lbl {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin-top: 0.2rem;
+    }
+
+    /* ── SKILLS ── */
+    .skills-section { background: var(--bg-card); }
+    .skills-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .skill-group:hover { border-color: var(--border-hover); }
+    .skill-group-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+    .skill-group-icon {
+      width: 32px; height: 32px;
+      background: var(--amber-dim);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber);
+      font-size: 0.85rem;
+    }
+    .skill-group-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-hi);
+    }
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .chip {
+      padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      background: var(--bg-surface);
+      color: var(--text-mid);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .chip:hover { border-color: var(--amber); color: var(--amber); }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--amber), var(--teal));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+    .project-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+
+    .project-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(240,165,0,0.04) 100%);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .ptag {
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+    }
+    .ptag-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(240,165,0,0.25); }
+    .ptag-teal { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(45,212,191,0.25); }
+    .ptag-pub {
+      background: rgba(139,92,246,0.12);
+      color: #a78bfa;
+      border: 1px solid rgba(139,92,246,0.3);
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-hi);
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+    }
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      flex: 1;
+    }
+    .project-metric {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      padding: 0.4rem 0.8rem;
+      background: var(--bg-surface);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--teal);
+      border: 1px solid var(--teal-dim);
+    }
+    .project-footer {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .project-stack span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-lo);
+    }
+    .project-link {
+      width: 34px; height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-mid);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .project-link:hover { border-color: var(--amber); color: var(--amber); }
+
+    /* ── EXPERIENCE / TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      max-width: 780px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 6px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--amber) 0%, var(--teal) 60%, transparent 100%);
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: all 0.5s;
+    }
+    .tl-item.visible { opacity: 1; transform: translateX(0); }
+    .tl-dot {
+      position: absolute;
+      left: -2.35rem;
+      top: 4px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--amber);
+      background: var(--bg);
+    }
+    .tl-date {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .tl-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .tl-org {
+      font-size: 0.88rem;
+      color: var(--teal);
+      margin-bottom: 0.8rem;
+    }
+    .tl-content {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    .tl-content ul { padding-left: 1.2rem; }
+    .tl-content li { margin-bottom: 0.4rem; line-height: 1.7; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(139,92,246,0.2);
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      transition: all 0.2s;
+    }
+    .pub-card:hover { border-color: rgba(139,92,246,0.5); transform: translateY(-2px); }
+    .pub-icon {
+      width: 48px; height: 48px;
+      flex-shrink: 0;
+      background: rgba(139,92,246,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a78bfa;
+      font-size: 1.3rem;
+    }
+    .pub-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .pub-meta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #a78bfa;
+      margin-bottom: 0.8rem;
+    }
+    .pub-desc {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .pub-metrics {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .pub-metric {
+      padding: 0.25rem 0.7rem;
+      background: rgba(139,92,246,0.08);
+      border: 1px solid rgba(139,92,246,0.25);
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #a78bfa;
+    }
+
+    /* ── CERTS ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .cert-card {
+      padding: 1.2rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.2s;
+    }
+    .cert-card:hover { border-color: var(--border-hover); transform: translateX(4px); }
+    .cert-icon {
+      color: var(--amber);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .cert-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-hi);
+      line-height: 1.3;
+    }
+    .cert-issuer {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-lo);
+      margin-top: 0.2rem;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    .contact-text p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .contact-link i { color: var(--amber); width: 20px; text-align: center; }
+    .contact-link:hover { border-color: var(--border-hover); color: var(--text-hi); transform: translateX(4px); }
+
+    .looking-for {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.5rem;
+    }
+    .looking-for h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .lf-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    .lf-item:last-of-type { border-bottom: none; }
+    .lf-item i { color: var(--teal); width: 20px; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    footer p {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-lo);
+    }
+    footer p a { color: var(--amber); text-decoration: none; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-lo);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--amber); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #home { padding: 7rem 3rem 5rem; grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      #home { padding: 6rem 1.5rem 4rem; }
+      .section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0; right: 0;
+        width: 260px; height: 100vh;
+        background: rgba(13,17,23,0.98);
+        backdrop-filter: blur(20px);
+        padding: 5rem 2rem;
+        gap: 2rem;
+        border-left: 1px solid var(--border);
+        z-index: 99;
+      }
+      .projects-grid { grid-template-columns: 1fr; }
+      .pub-card { flex-direction: column; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo">AR<span>K</span></a>
-      <div class="nav-menu" id="navMenu">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
+
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow-2"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">A<em>R</em>K</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-particles"></div>
-    <div class="hero-content">
-      <div class="hero-text">
-        <div class="greeting">👋 Welcome to my digital space</div>
-        <h1 class="hero-title">
-          Hi, I'm <span class="gradient-text">Adithya Rao Kalathur</span>
-        </h1>
-        <div class="typing-container">
-          <span class="typing-text" id="typingText"></span>
-          <span class="cursor">|</span>
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-text">
+      <div class="hero-eyebrow">// ML Engineer & AI Systems Builder</div>
+      <h1 class="hero-name">
+        Adithya Rao<br>
+        <span class="line2">Kalathur</span>
+      </h1>
+      <div class="hero-role">
+        <span id="typingText"></span><span class="cursor-blink">_</span>
+      </div>
+      <p class="hero-desc">
+        Building <strong>agentic AI systems</strong>, <strong>retrieval architectures</strong>, and production-scale ML pipelines. Currently pursuing M.E. in CSE at MSIS Manipal — obsessed with LLMs, RAG, and real-world impact.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">
+          <i class="fas fa-arrow-right"></i> View Projects
+        </a>
+        <a href="resume.pdf" download class="btn-ghost">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/AdithyaRaoK14" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/adithya-rao-kalathur-7b5727221" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:aditykr142@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/AdithyaRaoK14/AdithyaRaoK14-Adithya-Rao-Kalathur-Online-Course-Certifications" target="_blank" aria-label="Certifications"><i class="fas fa-certificate"></i></a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-title">// profile snapshot</div>
+      <div class="stat-row">
+        <div class="stat-item">
+          <span class="stat-label">status</span>
+          <span class="stat-badge">Open to work</span>
         </div>
-        <p class="hero-description">
-          Computer Science Student passionate about AI, Machine Learning, and building scalable systems that make a difference. Transforming ideas into intelligent solutions.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">
-            <span>View My Work</span>
-            <i class="fas fa-arrow-right"></i>
+        <div class="stat-item">
+          <span class="stat-label">degree</span>
+          <span class="stat-val" style="font-size:0.85rem;">M.E. CSE @ MSIS</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">projects</span>
+          <span class="stat-val">10+</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">publications</span>
+          <span class="stat-val">1</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">certifications</span>
+          <span class="stat-val">8+</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">RAG Hit@5</span>
+          <span class="stat-val">1.00</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">location</span>
+          <span class="stat-label">Udupi, Karnataka 🇮🇳</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="h-rule">
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-label">01 / about</div>
+    <h2 class="section-title">Who I <span>Am</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a <strong>Computer Science engineer from Udupi, Karnataka</strong>, currently pursuing my Master's at Manipal School of Information Sciences (MSIS). My work sits at the intersection of AI systems engineering and production-ready software.</p>
+        <p>My latest project, <strong>CodeIntel-RAG</strong>, is a self-hosted agentic RAG platform for natural-language querying over codebases — achieving a <strong>Hit@5 of 1.00</strong> and <strong>MRR of 0.845</strong> on a 25-query benchmark. It combines hybrid retrieval, a LangGraph ReAct agent, and a spec-compliant MCP server compatible with Cursor and Continue.dev.</p>
+        <p>I have a <strong>published book chapter</strong> in a Taylor & Francis volume on SQL injection detection, presented at ICCIDC 2025 in Bali, Indonesia. My research in medical AI demonstrated 96.5% accuracy in cancer classification using transfer learning.</p>
+        <div class="about-quote">"Build things that work, then build things that matter."</div>
+      </div>
+      <div class="about-stats reveal">
+        <div class="about-stat-card">
+          <div class="about-stat-num">10+</div>
+          <div class="about-stat-lbl">Production-ready projects spanning AI, cybersecurity & full-stack</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="about-stat-num">1.00</div>
+          <div class="about-stat-lbl">Hit@5 on CodeIntel-RAG benchmark vs pallets/flask</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="about-stat-num">97.84%</div>
+          <div class="about-stat-lbl">Accuracy on published SQL injection detection research</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="about-stat-num">8+</div>
+          <div class="about-stat-lbl">Professional certifications from Google, IBM, DeepLearning.AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="h-rule">
+
+  <!-- SKILLS -->
+  <section id="skills" class="section skills-section" style="padding-top:6rem; padding-bottom:6rem; max-width:none;">
+    <div style="max-width:1200px; margin:0 auto; padding:0 3rem;">
+      <div class="section-label">02 / expertise</div>
+      <h2 class="section-title reveal">Technical <span>Stack</span></h2>
+      <div class="skills-wrapper reveal">
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon"><i class="fas fa-robot"></i></div>
+            <div class="skill-group-name">AI Systems & LLMs</div>
+          </div>
+          <div class="skill-chips">
+            <span class="chip">LangGraph</span>
+            <span class="chip">LangChain</span>
+            <span class="chip">FastMCP</span>
+            <span class="chip">FAISS</span>
+            <span class="chip">BM25</span>
+            <span class="chip">Ollama</span>
+            <span class="chip">RAG Pipelines</span>
+            <span class="chip">Sentence Transformers</span>
+            <span class="chip">Cross-Encoder Reranking</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon"><i class="fas fa-brain"></i></div>
+            <div class="skill-group-name">ML & Deep Learning</div>
+          </div>
+          <div class="skill-chips">
+            <span class="chip">PyTorch</span>
+            <span class="chip">TensorFlow</span>
+            <span class="chip">Scikit-Learn</span>
+            <span class="chip">Hugging Face</span>
+            <span class="chip">U-Net</span>
+            <span class="chip">Transfer Learning</span>
+            <span class="chip">Grad-CAM</span>
+            <span class="chip">Optuna</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon"><i class="fas fa-code"></i></div>
+            <div class="skill-group-name">Languages</div>
+          </div>
+          <div class="skill-chips">
+            <span class="chip">Python</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Java</span>
+            <span class="chip">C/C++</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon"><i class="fas fa-server"></i></div>
+            <div class="skill-group-name">Backend & APIs</div>
+          </div>
+          <div class="skill-chips">
+            <span class="chip">FastAPI</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">React.js</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">Streamlit</span>
+            <span class="chip">Flask</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon"><i class="fas fa-database"></i></div>
+            <div class="skill-group-name">Data & Databases</div>
+          </div>
+          <div class="skill-chips">
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">MySQL</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">DAX</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">NumPy</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon"><i class="fas fa-tools"></i></div>
+            <div class="skill-group-name">Systems & Tools</div>
+          </div>
+          <div class="skill-chips">
+            <span class="chip">Docker</span>
+            <span class="chip">Git/GitHub</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Shell Scripting</span>
+            <span class="chip">OpenCV</span>
+            <span class="chip">Postman</span>
+            <span class="chip">Jupyter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="h-rule">
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-label">03 / work</div>
+    <h2 class="section-title reveal">Featured <span>Projects</span></h2>
+    <div class="projects-grid">
+
+      <!-- Featured: CodeIntel-RAG -->
+      <div class="project-card featured reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">⭐ Flagship Project</span>
+          <span class="ptag ptag-teal">RAG</span>
+          <span class="ptag ptag-teal">Agentic AI</span>
+          <span class="ptag ptag-teal">MCP Server</span>
+        </div>
+        <div class="project-name">CodeIntel-RAG — Agentic Codebase Intelligence</div>
+        <p class="project-desc">Self-hosted agentic RAG platform for natural-language querying over Python, Java, JavaScript, TypeScript & C++ codebases. Custom 5-signal hybrid retrieval combining BGE embeddings + FAISS, BM25Okapi, structural call-graph traversal, file-metadata filtering, and name-token concept matching. LangGraph ReAct agent + spec-compliant FastMCP server with 5 tools including a Bandit + regex security scanner with CWE/OWASP Top 10 mapping. Compatible with Cursor and Continue.dev over SSE.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-chart-line"></i> Hit@5: 1.00 · MRR: 0.845 · +8.7% vs semantic baseline</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack">
+            <span>LangGraph · FastMCP · FAISS · BM25 · Ollama · FastAPI · Docker · Pyvis</span>
+          </div>
+          <a href="https://github.com/AdithyaRaoK14/CodeIntel-RAG-Agentic-Code-Intelligence-Platform" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- SCC Grading -->
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">Medical AI</span>
+          <span class="ptag ptag-teal">Deep Learning</span>
+        </div>
+        <div class="project-name">SCC Grading from Histopathology</div>
+        <p class="project-desc">Benchmarked 5 CNN architectures for cancer classification and 3-class SCC grading. Applied CLAHE + Reinhard stain normalization, Optuna hyperparameter search (150 trials), and Grad-CAM for clinical interpretability. Deployed interactive Streamlit app with LLM-generated prediction summaries.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-bullseye"></i> InceptionV3: 96.5% acc · EfficientNet-B0: 89.15% acc, ROC-AUC 0.93</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack"><span>PyTorch · TensorFlow · Grad-CAM · Optuna · Streamlit</span></div>
+          <div style="display:flex;gap:0.4rem;">
+            <a href="https://github.com/AdithyaRaoK14/Lung-Cancer-Subtype-Classification" target="_blank" class="project-link" title="GitHub (Classification)"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/AdithyaRaoK14/SCC-Histopathology-Grading" target="_blank" class="project-link" title="GitHub (Grading)"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Night Vision -->
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">Computer Vision</span>
+          <span class="ptag ptag-teal">Image Enhancement</span>
+        </div>
+        <div class="project-name">Night Vision Enhancement</div>
+        <p class="project-desc">Engineered two low-light enhancement pipelines — vanilla U-Net and ResNet34 encoder-decoder U-Net — trained on LOL (485 pairs) and ImageNet Night Vision (40K+ pairs). Combined MSE + SSIM loss with ColorJitter augmentation and residual learning.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-signal"></i> PSNR: 18.84 dB · SSIM: 0.71 on 5K test images</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack"><span>PyTorch · U-Net · ResNet34 · OpenCV</span></div>
+          <a href="https://github.com/AdithyaRaoK14/Enhancing-Night-Vision-Using-ML" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- FMCG Dashboard -->
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">Data Analytics</span>
+          <span class="ptag ptag-teal">Power BI</span>
+        </div>
+        <div class="project-name">FMCG Supply Chain Analytics</div>
+        <p class="project-desc">End-to-end Power BI dashboard tracking supply chain KPIs — OTIF, LIFR, VOFR — across 3 cities and 50+ product categories for Atliq Mart. Developed 20+ DAX measures and SQL-based ETL pipelines for root-cause analysis.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-exclamation-triangle"></i> Identified 15% fulfillment gap across key accounts</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack"><span>Power BI · DAX · SQL · ETL Pipelines</span></div>
+          <a href="https://github.com/AdithyaRaoK14/Generate-Insights-to-Solve-a-Supply-Chain-Issue-in-the-FMCG-domain-Power-BI-Project" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-pub">Published</span>
+          <span class="ptag ptag-amber">Cybersecurity</span>
+        </div>
+        <div class="project-name">SQL Injection Detection — Published Research</div>
+        <p class="project-desc">First Author. Hybrid SVM-RF ensemble on 30,920 labeled SQL queries. BiLSTM model for sequence-based NLP threat detection. Published as book chapter in Taylor & Francis / CRC Press, presented at ICCIDC 2025, Bali.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-shield-alt"></i> 97.84% accuracy · 98.09% precision · BiLSTM: 98.75%</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack"><span>Python · SVM · Random Forest · BiLSTM · NLP</span></div>
+          <div style="display:flex;gap:0.4rem;">
+            <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003773504-12/enhancing-sql-injection-detection-comparative-study-svm-random-forest-hybrid-models-adithya-rao-kalathur-vaishnavi-balachandra-muniyal" target="_blank" class="project-link" title="View Publication"><i class="fas fa-book-open"></i></a>
+            <a href="https://github.com/AdithyaRaoK14/Enhancing-SQL-Injection-Detection-A-Comparative-Study-of-SVM-Random-Forest-and-Hybrid-Models" target="_blank" class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Network Anomaly -->
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">Cybersecurity</span>
+          <span class="ptag ptag-teal">ML</span>
+        </div>
+        <div class="project-name">Network Anomaly Detection</div>
+        <p class="project-desc">Real-time network intrusion detection using ensemble ML methods for binary and multiclass threat classification. Designed feature engineering pipeline on NSL-KDD and CICIDS datasets.</p>
+        <div class="project-footer">
+          <div class="project-stack"><span>Random Forest · XGBoost · Python · Scikit-Learn</span></div>
+          <a href="https://github.com/AdithyaRaoK14/Network-Anomaly-Detection-Using-ML-Models" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:3rem;" class="reveal">
+      <a href="https://github.com/AdithyaRaoK14" target="_blank" class="btn-ghost">
+        <i class="fab fa-github"></i> All Projects on GitHub
+      </a>
+    </div>
+  </section>
+
+  <hr class="h-rule">
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-label">04 / experience & education</div>
+    <h2 class="section-title reveal">Timeline</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2025 – 2027 (Expected)</div>
+        <div class="tl-title">Master of Engineering — Computer Science</div>
+        <div class="tl-org">Manipal School of Information Sciences (MSIS), Manipal</div>
+        <div class="tl-content"><p>CGPA: 7.96 / 10 &nbsp;·&nbsp; Focus: AI Systems, LLMs, Agentic Architectures</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Dec 2024 – Mar 2025</div>
+        <div class="tl-title">Freelance Web Developer</div>
+        <div class="tl-org">Startup Client — Remote</div>
+        <div class="tl-content">
+          <ul>
+            <li>Built and deployed a responsive portfolio website for a landscape design startup — sole point of contact for architecture, design, and deployment decisions.</li>
+            <li>Iterated rapidly on client feedback; delivered within timeline.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2020 – 2024</div>
+        <div class="tl-title">B.Tech — Computer & Communication Engineering</div>
+        <div class="tl-org">Manipal Institute of Technology (MIT), Manipal</div>
+        <div class="tl-content"><p>CGPA: 7.06 / 10 &nbsp;·&nbsp; Focus: AI/ML, Cybersecurity, Full-Stack Development</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color: var(--teal);"></div>
+        <div class="tl-date">Jun 2023 – Jul 2023</div>
+        <div class="tl-title">Full Stack Web Development Intern</div>
+        <div class="tl-org">Thaniya Technologies, Mangalore &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1gpWIF6nMw3gt4_coFMnshndd8oz0zEsp/view?usp=sharing" target="_blank" style="color:var(--amber);font-size:0.78rem;font-family:var(--font-mono);text-decoration:none;">View Certificate ↗</a></div>
+        <div class="tl-content">
+          <ul>
+            <li>Built and deployed a full-stack movie recommendation platform using React.js, Node.js, and PostgreSQL; shipped to production on Render.</li>
+            <li>Designed relational database schema, implemented REST APIs for all CRUD operations, and integrated NLP-based sentiment review analysis.</li>
+            <li>Enhanced UI performance by 30% through optimization techniques.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2018 – 2020</div>
+        <div class="tl-title">12th Standard — Science</div>
+        <div class="tl-org">Vidyodaya Pre-University College</div>
+        <div class="tl-content"><p>93.83% &nbsp;·&nbsp; Physics, Mathematics, Computer Science</p></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="h-rule">
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="section">
+    <div class="section-label">05 / research</div>
+    <h2 class="section-title reveal">Publications</h2>
+    <div class="pub-card reveal">
+      <div class="pub-icon"><i class="fas fa-book-open"></i></div>
+      <div>
+        <div class="pub-title">SQL Injection Detection: Comparative Study of SVM, RF and Hybrid Models</div>
+        <div class="pub-meta">First Author &nbsp;·&nbsp; Taylor & Francis / CRC Press (ISBN: 9781003773504) &nbsp;·&nbsp; October 2025</div>
+        <p class="pub-desc">Published as a book chapter in <em>Connecting Intelligence: Trends in Computation and Data Communication</em>. Presented at ICCIDC 2025, Bali, Indonesia. Hybrid SVM-RF ensemble on 30,920 labeled SQL queries; BiLSTM model further validated sequence-based NLP for automated threat detection.</p>
+        <div class="pub-metrics">
+          <span class="pub-metric">Accuracy: 97.84%</span>
+          <span class="pub-metric">Precision: 98.09%</span>
+          <span class="pub-metric">Recall: 97.57%</span>
+          <span class="pub-metric">BiLSTM: 98.75%</span>
+          <span class="pub-metric">ICCIDC 2025, Bali</span>
+        </div>
+        <div style="display:flex;gap:0.8rem;margin-top:1.2rem;flex-wrap:wrap;">
+          <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003773504-12/enhancing-sql-injection-detection-comparative-study-svm-random-forest-hybrid-models-adithya-rao-kalathur-vaishnavi-balachandra-muniyal" target="_blank" class="btn-ghost" style="font-size:0.78rem;padding:0.45rem 1rem;">
+            <i class="fas fa-book-open"></i> View Publication
           </a>
-          <a href="#contact" class="btn btn-secondary">
-            <span>Get In Touch</span>
-            <i class="fas fa-envelope"></i>
+          <a href="https://drive.google.com/file/d/1umsx-E9Nuh4A6t0wa8jOfVEmfCLhRn_6/view" target="_blank" class="btn-ghost" style="font-size:0.78rem;padding:0.45rem 1rem;">
+            <i class="fas fa-certificate"></i> Conference Certificate
           </a>
         </div>
-        <div class="hero-social">
-          <a href="https://github.com/AdithyaRaoK14" target="_blank" class="social-icon" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/adithya-rao-kalathur-7b5727221" target="_blank" class="social-icon" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="mailto:aditykr142@gmail.com" class="social-icon" aria-label="Email">
+      </div>
+    </div>
+  </section>
+
+  <hr class="h-rule">
+
+  <!-- CERTIFICATIONS -->
+  <section class="section">
+    <div class="section-label">06 / credentials</div>
+    <h2 class="section-title reveal">Certifications</h2>
+    <div class="cert-grid reveal">
+      <div class="cert-card">
+        <i class="fas fa-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">Generative AI with Large Language Models</div>
+          <div class="cert-issuer">DeepLearning.AI · 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="fas fa-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">Google Cybersecurity Professional</div>
+          <div class="cert-issuer">Coursera · 2024</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="fas fa-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">Google Data Analytics Professional</div>
+          <div class="cert-issuer">Coursera · 2024</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="fas fa-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">IBM Data Science Professional</div>
+          <div class="cert-issuer">Coursera · 2024</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="fas fa-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">Big Data Specialization</div>
+          <div class="cert-issuer">UC San Diego · Coursera</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="fas fa-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">Azure GitHub Workshop</div>
+          <div class="cert-issuer">Microsoft</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem;" class="reveal">
+      <a href="https://github.com/AdithyaRaoK14/AdithyaRaoK14-Adithya-Rao-Kalathur-Online-Course-Certifications" target="_blank" class="btn-ghost" style="font-size:0.85rem;">
+        <i class="fas fa-external-link-alt"></i> View All Certificates
+      </a>
+    </div>
+  </section>
+
+  <hr class="h-rule">
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-label">07 / contact</div>
+    <h2 class="section-title reveal">Let's <span>Connect</span></h2>
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <p>I'm actively seeking <strong>ML Engineering, AI Backend, and Data Science</strong> roles. Whether you have a project in mind, want to collaborate on research, or just want to talk AI — reach out.</p>
+        <p>I'm also open to <strong>open-source collaboration</strong> and freelance projects involving agentic systems, RAG architectures, or ML pipelines.</p>
+        <div class="contact-links">
+          <a href="mailto:aditykr142@gmail.com" class="contact-link">
             <i class="fas fa-envelope"></i>
+            aditykr142@gmail.com
           </a>
-          <a href="tel:+916362290372" class="social-icon" aria-label="Phone">
+          <a href="tel:+916362290372" class="contact-link">
             <i class="fas fa-phone"></i>
+            +91 6362290372
+          </a>
+          <a href="https://www.linkedin.com/in/adithya-rao-kalathur-7b5727221" target="_blank" class="contact-link">
+            <i class="fab fa-linkedin-in"></i>
+            linkedin.com/in/adithya-rao-kalathur
+          </a>
+          <a href="https://github.com/AdithyaRaoK14" target="_blank" class="contact-link">
+            <i class="fab fa-github"></i>
+            github.com/AdithyaRaoK14
+          </a>
+          <div class="contact-link" style="cursor:default;">
+            <i class="fas fa-map-marker-alt"></i>
+            Udupi, Karnataka, India
+          </div>
+        </div>
+      </div>
+      <div class="looking-for reveal">
+        <h3>What I'm Looking For</h3>
+        <div class="lf-item"><i class="fas fa-robot"></i> ML Engineering Roles</div>
+        <div class="lf-item"><i class="fas fa-network-wired"></i> AI Backend & Agentic Systems</div>
+        <div class="lf-item"><i class="fas fa-chart-line"></i> Data Science Opportunities</div>
+        <div class="lf-item"><i class="fas fa-shield-alt"></i> Cybersecurity / ML Security</div>
+        <div class="lf-item"><i class="fas fa-code-branch"></i> Open-Source Collaborations</div>
+        <div class="lf-item"><i class="fas fa-microscope"></i> AI Research Positions</div>
+        <div style="margin-top:2rem;">
+          <a href="resume.pdf" download class="btn-primary">
+            <i class="fas fa-download"></i> Download Resume
           </a>
         </div>
       </div>
-      <div class="hero-image">
-        <div class="profile-container">
-          <img src="profile.jpg" alt="Adithya Rao Kalathur" class="profile-img">
-          <div class="profile-ring"></div>
-          <div class="profile-ring-2"></div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <div class="mouse"></div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section about-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">About Me</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="about-grid">
-        <div class="about-card">
-          <div class="card-icon">💻</div>
-          <h3>Full-Stack Developer</h3>
-          <p>Building end-to-end applications with modern frameworks and scalable architectures</p>
-        </div>
-        <div class="about-card">
-          <div class="card-icon">🤖</div>
-          <h3>AI/ML Engineer</h3>
-          <p>Creating intelligent systems using deep learning and advanced algorithms</p>
-        </div>
-        <div class="about-card">
-          <div class="card-icon">📊</div>
-          <h3>Data Analyst</h3>
-          <p>Transforming raw data into actionable insights and compelling visualizations</p>
-        </div>
-        <div class="about-card">
-          <div class="card-icon">🔒</div>
-          <h3>Cybersecurity Enthusiast</h3>
-          <p>Researching security vulnerabilities and building robust defense systems</p>
-        </div>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <h3>Who I Am</h3>
-          <p>I'm a Computer Science student from Udupi, Karnataka, India, with a deep passion for technology and innovation. My journey in tech spans across multiple domains - from developing full-stack applications to building AI models that solve real-world problems.</p>
-          <p>With expertise in Python, Java, JavaScript, and modern frameworks like React and Node.js, I create solutions that are not just functional, but elegant and scalable. My work in AI/ML, particularly in medical imaging and computer vision, demonstrates my commitment to using technology for social impact.</p>
-          <p class="quote">"Code is poetry, debugging is the art"</p>
-        </div>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Major Projects</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">8+</div>
-            <div class="stat-label">Certifications</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Technologies</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="section skills-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Technical Expertise</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="skills-container">
-        <div class="skill-category">
-          <div class="category-header">
-            <i class="fas fa-code"></i>
-            <h3>Programming Languages</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">C#</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <div class="category-header">
-            <i class="fas fa-brain"></i>
-            <h3>AI/ML & Data Science</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">Scikit-Learn</span>
-            <span class="skill-tag">Keras</span>
-            <span class="skill-tag">OpenCV</span>
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">XGBoost</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <div class="category-header">
-            <i class="fas fa-laptop-code"></i>
-            <h3>Web Development</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Express.js</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">Flask</span>
-            <span class="skill-tag">.NET</span>
-            <span class="skill-tag">Scrapy</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <div class="category-header">
-            <i class="fas fa-database"></i>
-            <h3>Databases & Cloud</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">Firebase</span>
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">Google Cloud</span>
-            <span class="skill-tag">Azure</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <div class="category-header">
-            <i class="fas fa-tools"></i>
-            <h3>Tools & Technologies</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Jupyter</span>
-            <span class="skill-tag">Power BI</span>
-            <span class="skill-tag">Postman</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section projects-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="section-line"></div>
-        <p class="section-subtitle">Showcasing my best work in AI/ML, Web Development, and Cybersecurity</p>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <a href="https://github.com/AdithyaRaoK14/Development-of-Deep-Learning-Approach-for-Grading-Squamous-Cell-Carcinoma-from-Histopathology-Images" target="_blank" class="project-link">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="tag">Deep Learning</span>
-              <span class="tag">Medical AI</span>
-            </div>
-            <h3>Cancer Grading with Deep Learning</h3>
-            <p>Automated grading of squamous cell carcinoma from histopathology images using EfficientNetB0 and transfer learning techniques.</p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>TensorFlow</span>
-              <span>Computer Vision</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <a href="https://github.com/AdithyaRaoK14/Enhancing-Night-Vision-Using-ML" target="_blank" class="project-link">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="tag">Computer Vision</span>
-              <span class="tag">ML</span>
-            </div>
-            <h3>Night Vision Enhancement</h3>
-            <p>ML-powered system using U-Net and Residual U-Net architectures for superior low-light image processing and enhancement.</p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>U-Net</span>
-              <span>OpenCV</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <a href="https://github.com/AdithyaRaoK14/Network-Anomaly-Detection-Using-ML-Models" target="_blank" class="project-link">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="tag">Cybersecurity</span>
-              <span class="tag">ML</span>
-            </div>
-            <h3>Network Anomaly Detection</h3>
-            <p>Real-time network intrusion detection system using ensemble ML methods for binary and multiclass threat classification.</p>
-            <div class="project-tech">
-              <span>Random Forest</span>
-              <span>XGBoost</span>
-              <span>Python</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <a href="https://github.com/AdithyaRaoK14/Enhancing-SQL-Injection-Detection-A-Comparative-Study-of-SVM-Random-Forest-and-Hybrid-Models" target="_blank" class="project-link">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="tag">Security</span>
-              <span class="tag">ML</span>
-            </div>
-            <h3>SQL Injection Detection</h3>
-            <p>Comparative ML study implementing SVM, Random Forest, and hybrid models for enterprise-grade SQL injection detection.</p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>SVM</span>
-              <span>Scikit-Learn</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <a href="https://github.com/AdithyaRaoK14/Movie-Review-and-Recommendation-System" target="_blank" class="project-link">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="tag">Web Dev</span>
-              <span class="tag">NLP</span>
-            </div>
-            <h3>Movie Recommendation System</h3>
-            <p>NLP-powered platform with sentiment analysis and collaborative filtering for personalized movie recommendations.</p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>PostgreSQL</span>
-              <span>NLP</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <a href="https://github.com/AdithyaRaoK14/Hospital-Management-System-using-Python" target="_blank" class="project-link">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="tag">Full Stack</span>
-              <span class="tag">Healthcare</span>
-            </div>
-            <h3>Hospital Management System</h3>
-            <p>Complete healthcare platform with patient records, appointment scheduling, and integrated billing system.</p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>Tkinter</span>
-              <span>MySQL</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="view-all">
-        <a href="https://github.com/AdithyaRaoK14" target="_blank" class="btn btn-outline">
-          View All Projects on GitHub
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="section experience-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Experience & Education</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">June 2023 - July 2023</div>
-            <h3>Full Stack Web Development Intern</h3>
-            <h4>Thaniya Technologies</h4>
-            <ul>
-              <li>Developed a React.js & PostgreSQL movie recommendation platform with AI-powered features</li>
-              <li>Enhanced UI performance by 30% through optimization techniques</li>
-              <li>Implemented sentiment-based review analysis using NLP</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2020 - 2024</div>
-            <h3>B.Tech in Computer & Communication Engineering</h3>
-            <h4>Manipal Institute of Technology</h4>
-            <p>CGPA: 7.06/10 | Focus on AI/ML, Cybersecurity, and Full-Stack Development</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2018 - 2020</div>
-            <h3>12th Standard (Science)</h3>
-            <h4>Vidyodaya Pre-University College</h4>
-            <p>93.83% | Focused on Mathematics, Physics, and Computer Science</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="certifications">
-        <h3 class="subsection-title">Certifications</h3>
-        <div class="cert-grid">
-          <div class="cert-card">
-            <i class="fas fa-certificate"></i>
-            <h4>Google Cybersecurity</h4>
-            <p>2024</p>
-          </div>
-          <div class="cert-card">
-            <i class="fas fa-certificate"></i>
-            <h4>Google Data Analytics</h4>
-            <p>2024</p>
-          </div>
-          <div class="cert-card">
-            <i class="fas fa-certificate"></i>
-            <h4>IBM Data Science</h4>
-            <p>2024</p>
-          </div>
-          <div class="cert-card">
-            <i class="fas fa-certificate"></i>
-            <h4>Generative AI with LLMs</h4>
-            <p>DeepLearning.AI</p>
-          </div>
-          <div class="cert-card">
-            <i class="fas fa-certificate"></i>
-            <h4>Big Data Specialization</h4>
-            <p>UC San Diego</p>
-          </div>
-          <div class="cert-card">
-            <i class="fas fa-certificate"></i>
-            <h4>Azure GitHub Workshop</h4>
-            <p>Microsoft</p>
-          </div>
-        </div>
-        <a href="https://github.com/AdithyaRaoK14/AdithyaRaoK14-Adithya-Rao-Kalathur-Online-Course-Certifications" target="_blank" class="view-certs-link">
-          View All Certifications <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section contact-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="section-line"></div>
-        <p class="section-subtitle">Open for opportunities and collaborations</p>
-      </div>
-      <div class="contact-content">
-        <div class="contact-info">
-          <h3>Get In Touch</h3>
-          <p>I'm actively seeking opportunities to contribute to innovative projects and collaborate with talented teams. Whether you have a project in mind or just want to chat about tech, feel free to reach out!</p>
-          <div class="contact-methods">
-            <a href="mailto:aditykr142@gmail.com" class="contact-method">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>Email</h4>
-                <p>aditykr142@gmail.com</p>
-              </div>
-            </a>
-            <a href="tel:+916362290372" class="contact-method">
-              <i class="fas fa-phone"></i>
-              <div>
-                <h4>Phone</h4>
-                <p>+91 6362290372</p>
-              </div>
-            </a>
-            <div class="contact-method">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Location</h4>
-                <p>Udupi, Karnataka, India</p>
-              </div>
-            </div>
-          </div>
-          <div class="contact-social">
-            <a href="https://github.com/AdithyaRaoK14" target="_blank" class="social-btn">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/adithya-rao-kalathur-7b5727221" target="_blank" class="social-btn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:aditykr142@gmail.com" class="social-btn">
-              <i class="fas fa-envelope"></i>
-            </a>
-          </div>
-        </div>
-        <div class="contact-cta">
-          <div class="cta-card">
-            <h3>What I'm Looking For</h3>
-            <div class="cta-items">
-              <div class="cta-item">
-                <i class="fas fa-robot"></i>
-                <p>AI/ML Engineering Roles</p>
-              </div>
-              <div class="cta-item">
-                <i class="fas fa-code"></i>
-                <p>Full-Stack Development</p>
-              </div>
-              <div class="cta-item">
-                <i class="fas fa-chart-line"></i>
-                <p>Data Science Opportunities</p>
-              </div>
-              <div class="cta-item">
-                <i class="fas fa-shield-alt"></i>
-                <p>Cybersecurity Projects</p>
-              </div>
-              <div class="cta-item">
-                <i class="fas fa-users"></i>
-                <p>Open-Source Collaborations</p>
-              </div>
-            </div>
-            <a href="resume.pdf" download class="btn btn-primary">
-              <i class="fas fa-download"></i>
-              Download Resume
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-text">
-          <p>Crafted with ❤️ and ☕ by Adithya Rao Kalathur</p>
-          <p class="footer-quote">"In a world of algorithms, be the one who codes with purpose"</p>
-        </div>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Adithya Rao Kalathur. All rights reserved.</p>
-      </div>
+  <!-- FOOTER -->
+  <hr class="h-rule">
+  <footer>
+    <p>Crafted by <a href="mailto:aditykr142@gmail.com">Adithya Rao Kalathur</a> &nbsp;·&nbsp; © 2025</p>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Research</a>
+      <a href="#contact">Contact</a>
     </div>
   </footer>
 
   <script>
-    // Navigation
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    });
-
-    // Typing Effect
-    const phrases = [
+    // Typing effect
+    const roles = [
+      'ML Engineer',
+      'Agentic AI Systems Builder',
+      'RAG & LLM Specialist',
       'Full Stack Developer',
-      'AI/ML Engineer',
-      'Data Scientist',
-      'Cybersecurity Enthusiast',
-      'Problem Solver'
+      'Deep Learning Researcher',
     ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingSpeed = 100;
-    const deletingSpeed = 50;
-    const pauseTime = 2000;
+    let ri = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typingText');
 
-    function typeEffect() {
-      const currentPhrase = phrases[phraseIndex];
-      const typingText = document.getElementById('typingText');
-      
-      if (isDeleting) {
-        typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        setTimeout(() => isDeleting = true, pauseTime);
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-      }
-
-      const speed = isDeleting ? deletingSpeed : typingSpeed;
-      setTimeout(typeEffect, speed);
+    function type() {
+      const cur = roles[ri];
+      el.textContent = deleting ? cur.slice(0, ci - 1) : cur.slice(0, ci + 1);
+      deleting ? ci-- : ci++;
+      if (!deleting && ci === cur.length) { setTimeout(() => deleting = true, 1800); }
+      else if (deleting && ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+      setTimeout(type, deleting ? 45 : 85);
     }
+    type();
 
-    typeEffect();
-
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Navbar scroll effect
+    // Nav scroll
     window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
     });
 
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    // Hamburger
+    const hb = document.getElementById('hamburger');
+    const nl = document.getElementById('navLinks');
+    hb.addEventListener('click', () => nl.classList.toggle('open'));
+    nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl.classList.remove('open')));
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+    // Intersection Observer
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // Timeline items also use visible
+          if (e.target.classList.contains('tl-item')) e.target.classList.add('visible');
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.about-card, .project-card, .timeline-item, .skill-category').forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.reveal, .tl-item').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
