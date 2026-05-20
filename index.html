@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adithya Rao Kalathur — ML Engineer & AI Systems Builder</title>
+  <meta name="description" content="ML Engineer specialising in agentic AI systems, RAG pipelines, and production ML infrastructure. Published author (Taylor & Francis, 2025). Open to ML Engineering and AI Backend roles.">
+  <meta name="keywords" content="ML Engineer, Agentic AI, RAG, LangGraph, LangChain, FastMCP, MLOps, Python, LLM, Adithya Rao Kalathur">
+  <meta name="author" content="Adithya Rao Kalathur">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Adithya Rao Kalathur — ML Engineer & AI Systems Builder">
+  <meta property="og:description" content="ML Engineer specialising in agentic AI systems, RAG pipelines, and production ML infrastructure. Published author (Taylor & Francis, 2025).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adithyaraok14.github.io/">
+  <meta property="og:image" content="https://drive.google.com/uc?export=view&id=15-WPHogrLSNmwZPANDq064i4fzj1B8w2">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Adithya Rao Kalathur — ML Engineer & AI Systems Builder">
+  <meta name="twitter:description" content="ML Engineer specialising in agentic AI systems, RAG pipelines, and production ML infrastructure. Published author (Taylor & Francis, 2025).">
+  <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=15-WPHogrLSNmwZPANDq064i4fzj1B8w2">
+  <link rel="canonical" href="https://adithyaraok14.github.io/">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23f0a500'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='13' fill='%2307090b'%3EARK%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -86,6 +103,19 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--amber); }
+    .nav-links a.nav-active {
+      color: var(--amber);
+      position: relative;
+    }
+    .nav-links a.nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--amber);
+      border-radius: 2px;
+    }
 
     .nav-hamburger {
       display: none;
@@ -478,6 +508,33 @@
     }
     .chip:hover { border-color: var(--amber); color: var(--amber); }
 
+    .project-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .pf-tab {
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      color: var(--text-mid);
+      background: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pf-tab:hover { border-color: var(--border-hover); color: var(--text-hi); }
+    .pf-tab.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #07090b;
+      font-weight: 600;
+    }
+    .project-card.hidden { display: none; }
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -817,6 +874,63 @@
     }
     .footer-links a:hover { color: var(--amber); }
 
+    /* Mobile stats strip */
+    .mobile-stats-strip {
+      display: none;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .mss-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-width: 80px;
+      flex: 1;
+    }
+    .mss-val {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--amber);
+    }
+    .mss-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-lo);
+      text-align: center;
+      margin-top: 0.2rem;
+    }
+
+    /* Scroll-to-top button */
+    #scrollTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: var(--amber);
+      color: #07090b;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 190;
+      box-shadow: 0 4px 16px rgba(240,165,0,0.25);
+    }
+    #scrollTop.visible { opacity: 1; transform: translateY(0); }
+    #scrollTop:hover { background: #ffc233; }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -839,6 +953,7 @@
     @media (max-width: 1024px) {
       #home { padding: 7rem 3rem 5rem; grid-template-columns: 1fr; }
       .hero-card { display: none; }
+      .mobile-stats-strip { display: flex; }
       .about-grid { grid-template-columns: 1fr; }
       .project-card.featured { grid-column: span 1; }
       .contact-grid { grid-template-columns: 1fr; }
@@ -908,9 +1023,16 @@
         <a href="#projects" class="btn-primary">
           <i class="fas fa-arrow-right"></i> View Projects
         </a>
-        <a href="resume.pdf" download class="btn-ghost">
-          <i class="fas fa-download"></i> Download Resume
+        <a href="https://drive.google.com/file/d/1zD9texpC2pbo3ySC03dPZRnk8--pa4nv/view?usp=sharing" target="_blank" class="btn-ghost">
+          <i class="fas fa-file-pdf"></i> View Resume
         </a>
+      </div>
+      <!-- Mobile-only compact stats strip (hero-card is hidden on mobile) -->
+      <div class="mobile-stats-strip">
+        <div class="mss-item"><span class="mss-val">10+</span><span class="mss-lbl">Projects</span></div>
+        <div class="mss-item"><span class="mss-val">1.00</span><span class="mss-lbl">RAG Hit@5</span></div>
+        <div class="mss-item"><span class="mss-val">1</span><span class="mss-lbl">Publication</span></div>
+        <div class="mss-item"><span class="mss-val">8+</span><span class="mss-lbl">Certs</span></div>
       </div>
       <div class="hero-socials">
         <a href="https://github.com/AdithyaRaoK14" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -923,7 +1045,7 @@
     <div class="hero-card">
       <div class="profile-photo-wrap">
         <img
-          src="profile.jpg"
+          src="https://drive.google.com/uc?export=view&id=15-WPHogrLSNmwZPANDq064i4fzj1B8w2"
           alt="Adithya Rao Kalathur"
           class="profile-photo"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
@@ -1104,10 +1226,17 @@
   <section id="projects" class="section">
     <div class="section-label">03 / work</div>
     <h2 class="section-title reveal">Featured <span>Projects</span></h2>
+    <div class="project-filters" id="projectFilters">
+      <button class="pf-tab active" data-filter="all" aria-pressed="true">All</button>
+      <button class="pf-tab" data-filter="agentic" aria-pressed="false">Agentic AI</button>
+      <button class="pf-tab" data-filter="mlops" aria-pressed="false">MLOps</button>
+      <button class="pf-tab" data-filter="cv" aria-pressed="false">Computer Vision</button>
+      <button class="pf-tab" data-filter="cyber" aria-pressed="false">Cybersecurity</button>
+    </div>
     <div class="projects-grid">
 
       <!-- Featured: CodeIntel-RAG -->
-      <div class="project-card featured reveal">
+      <div class="project-card featured reveal" data-category="agentic">
         <div class="project-tags">
           <span class="ptag ptag-amber">⭐ Flagship Project</span>
           <span class="ptag ptag-teal">RAG</span>
@@ -1128,7 +1257,7 @@
       </div>
 
       <!-- NEW: Fraud Detection ML Pipeline -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-category="mlops">
         <div class="project-tags">
           <span class="ptag ptag-amber">MLOps</span>
           <span class="ptag ptag-teal">Production ML</span>
@@ -1145,7 +1274,7 @@
       </div>
 
       <!-- NEW: Autonomous Data Analyst Agent -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-category="agentic">
         <div class="project-tags">
           <span class="ptag ptag-amber">Agentic AI</span>
           <span class="ptag ptag-teal">Secure Sandbox</span>
@@ -1162,7 +1291,7 @@
       </div>
 
       <!-- SCC Grading -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-category="cv">
         <div class="project-tags">
           <span class="ptag ptag-amber">Medical AI</span>
           <span class="ptag ptag-teal">Deep Learning</span>
@@ -1182,7 +1311,7 @@
       </div>
 
       <!-- SQL Injection — Published -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-category="cyber">
         <div class="project-tags">
           <span class="ptag ptag-pub">Published</span>
           <span class="ptag ptag-amber">Cybersecurity</span>
@@ -1202,7 +1331,7 @@
       </div>
 
       <!-- Night Vision -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-category="cv">
         <div class="project-tags">
           <span class="ptag ptag-amber">Computer Vision</span>
           <span class="ptag ptag-teal">Image Enhancement</span>
@@ -1219,7 +1348,7 @@
       </div>
 
       <!-- FMCG Dashboard -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-category="mlops">
         <div class="project-tags">
           <span class="ptag ptag-amber">Data Analytics</span>
           <span class="ptag ptag-teal">Power BI</span>
@@ -1236,7 +1365,7 @@
       </div>
 
       <!-- Network Anomaly -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-category="cyber">
         <div class="project-tags">
           <span class="ptag ptag-amber">Cybersecurity</span>
           <span class="ptag ptag-teal">ML</span>
@@ -1442,8 +1571,8 @@
         <div class="lf-item"><i class="fas fa-code-branch"></i> Open-Source Collaborations</div>
         <div class="lf-item"><i class="fas fa-microscope"></i> AI Research Positions</div>
         <div style="margin-top:2rem;">
-          <a href="resume.pdf" download class="btn-primary">
-            <i class="fas fa-download"></i> Download Resume
+          <a href="https://drive.google.com/file/d/1zD9texpC2pbo3ySC03dPZRnk8--pa4nv/view?usp=sharing" target="_blank" class="btn-primary">
+            <i class="fas fa-file-pdf"></i> View Resume
           </a>
         </div>
       </div>
@@ -1452,7 +1581,7 @@
 
   <hr class="h-rule">
   <footer>
-    <p>Crafted by <a href="mailto:aditykr142@gmail.com">Adithya Rao Kalathur</a> &nbsp;·&nbsp; © 2025</p>
+    <p>Crafted by <a href="mailto:aditykr142@gmail.com">Adithya Rao Kalathur</a> &nbsp;·&nbsp; © <span id="footerYear"></span></p>
     <div class="footer-links">
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
@@ -1461,7 +1590,13 @@
     </div>
   </footer>
 
+  <button id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
   <script>
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Typing animation
     const roles = [
       'ML Engineer',
       'Agentic AI Systems Builder',
@@ -1480,10 +1615,33 @@
     }
     type();
 
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+    // Nav scroll behaviour + active highlighting
+    const navSections = ['home','about','skills','projects','experience','publications','contact'];
+    const navAnchors = {};
+    navSections.forEach(id => {
+      const a = document.querySelector(`.nav-links a[href="#${id}"]`);
+      if (a) navAnchors[id] = a;
     });
 
+    function updateNav() {
+      const scrolled = window.scrollY > 80;
+      document.getElementById('navbar').classList.toggle('scrolled', scrolled);
+
+      // Find the section whose top is closest to (but above) 40% of viewport
+      const threshold = window.scrollY + window.innerHeight * 0.35;
+      let active = navSections[0];
+      for (const id of navSections) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= threshold) active = id;
+      }
+      Object.entries(navAnchors).forEach(([id, a]) => {
+        a.classList.toggle('nav-active', id === active);
+      });
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // Hamburger
     const hb      = document.getElementById('hamburger');
     const nl      = document.getElementById('navLinks');
     const overlay = document.getElementById('navOverlay');
@@ -1495,11 +1653,48 @@
     overlay.addEventListener('click', closeMenu);
     nl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
+    // Scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Project filter tabs
+    const filterBtns = document.querySelectorAll('.pf-tab');
+    const projectCards = document.querySelectorAll('.projects-grid .project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        const filter = btn.dataset.filter;
+        projectCards.forEach(card => {
+          const cat = card.dataset.category || 'all';
+          const show = filter === 'all' || cat === filter;
+          card.classList.toggle('hidden', !show);
+          // Force reveal on cards that were hidden when IntersectionObserver fired
+          if (show) card.classList.add('visible');
+          // Reset featured span on filter change
+          if (card.classList.contains('featured')) {
+            card.style.gridColumn = (filter === 'all') ? '' : 'span 1';
+          }
+        });
+      });
+    });
+
+    // Intersection observer for reveal animations
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal, .tl-item').forEach(el => io.observe(el));
+
+    // Security: patch all external links
+    document.querySelectorAll('a[target="_blank"]').forEach(a => {
+      a.rel = 'noopener noreferrer';
+    });
   </script>
 </body>
 </html>
