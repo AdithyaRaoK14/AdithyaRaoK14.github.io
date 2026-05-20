@@ -329,10 +329,14 @@
     .hero-card-title {
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      color: var(--text-lo);
+      color: var(--text-mid);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
+    }
+    .hero-card-title::before {
+      content: '// ';
+      color: var(--amber);
     }
     .stat-row {
       display: flex;
@@ -1053,7 +1057,7 @@
         <div class="profile-photo-fallback" style="display:none;">ARK</div>
       </div>
 
-      <div class="hero-card-title">// profile snapshot</div>
+      <div class="hero-card-title">profile snapshot</div>
       <div class="stat-row">
         <div class="stat-item">
           <span class="stat-label">status</span>
