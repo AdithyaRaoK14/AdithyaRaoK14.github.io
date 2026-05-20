@@ -37,7 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -48,7 +47,6 @@
       opacity: 0.6;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -111,7 +109,6 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Mobile menu overlay */
     .nav-overlay {
       display: none;
       position: fixed;
@@ -122,7 +119,6 @@
     }
     .nav-overlay.open { display: block; }
 
-    /* ── HERO ── */
     #home {
       min-height: 100vh;
       display: grid;
@@ -261,7 +257,6 @@
     }
     .hero-socials a:hover { border-color: var(--amber); color: var(--amber); }
 
-    /* Hero right card */
     .hero-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -271,7 +266,6 @@
       animation: fadeIn 0.8s 0.4s forwards;
     }
 
-    /* Profile photo */
     .profile-photo-wrap {
       display: flex;
       justify-content: center;
@@ -348,7 +342,6 @@
       color: var(--teal);
     }
 
-    /* ── SECTION BASE ── */
     .section {
       padding: 6rem 0;
       max-width: 1200px;
@@ -381,7 +374,6 @@
       margin: 0;
     }
 
-    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
@@ -433,7 +425,6 @@
       margin-top: 0.2rem;
     }
 
-    /* ── SKILLS ── */
     .skills-section { background: var(--bg-card); }
     .skills-wrapper {
       display: grid;
@@ -487,7 +478,6 @@
     }
     .chip:hover { border-color: var(--amber); color: var(--amber); }
 
-    /* ── PROJECTS ── */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -603,7 +593,6 @@
     }
     .project-link:hover { border-color: var(--amber); color: var(--amber); }
 
-    /* ── EXPERIENCE / TIMELINE ── */
     .timeline {
       position: relative;
       padding-left: 2rem;
@@ -658,7 +647,6 @@
     .tl-content ul { padding-left: 1.2rem; }
     .tl-content li { margin-bottom: 0.4rem; line-height: 1.7; }
 
-    /* ── PUBLICATIONS ── */
     .pub-card {
       background: var(--bg-card);
       border: 1px solid rgba(139,92,246,0.2);
@@ -714,7 +702,6 @@
       color: #a78bfa;
     }
 
-    /* ── CERTS ── */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -749,7 +736,6 @@
       margin-top: 0.2rem;
     }
 
-    /* ── CONTACT ── */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -806,7 +792,6 @@
     .lf-item:last-of-type { border-bottom: none; }
     .lf-item i { color: var(--teal); width: 20px; text-align: center; }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 3rem;
@@ -832,7 +817,6 @@
     }
     .footer-links a:hover { color: var(--amber); }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -852,7 +836,6 @@
       transform: translateY(0);
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       #home { padding: 7rem 3rem 5rem; grid-template-columns: 1fr; }
       .hero-card { display: none; }
@@ -890,10 +873,8 @@
   <div class="hero-bg-glow"></div>
   <div class="hero-bg-glow-2"></div>
 
-  <!-- Mobile overlay -->
   <div class="nav-overlay" id="navOverlay"></div>
 
-  <!-- NAV -->
   <nav id="navbar">
     <a href="#home" class="nav-logo">A<em>R</em>K</a>
     <ul class="nav-links" id="navLinks">
@@ -940,7 +921,6 @@
     </div>
 
     <div class="hero-card">
-      <!-- Profile photo — place profile.jpg in the same folder as this HTML file -->
       <div class="profile-photo-wrap">
         <img
           src="profile.jpg"
@@ -1021,47 +1001,12 @@
 
   <hr class="h-rule">
 
-  <!-- SKILLS -->
+  <!-- SKILLS — updated to match resume's merged 5-category structure -->
   <section id="skills" class="section skills-section" style="padding-top:6rem; padding-bottom:6rem; max-width:none;">
     <div style="max-width:1200px; margin:0 auto; padding:0 3rem;">
       <div class="section-label">02 / expertise</div>
       <h2 class="section-title reveal">Technical <span>Stack</span></h2>
       <div class="skills-wrapper reveal">
-
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon"><i class="fas fa-robot"></i></div>
-            <div class="skill-group-name">AI Systems & LLMs</div>
-          </div>
-          <div class="skill-chips">
-            <span class="chip">LangGraph</span>
-            <span class="chip">LangChain</span>
-            <span class="chip">MCP (Model Context Protocol)</span>
-            <span class="chip">FAISS</span>
-            <span class="chip">BM25</span>
-            <span class="chip">Ollama</span>
-            <span class="chip">RAG Pipelines</span>
-            <span class="chip">Sentence Transformers</span>
-            <span class="chip">Cross-Encoder Reranking</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon"><i class="fas fa-brain"></i></div>
-            <div class="skill-group-name">ML & Deep Learning</div>
-          </div>
-          <div class="skill-chips">
-            <span class="chip">PyTorch</span>
-            <span class="chip">TensorFlow</span>
-            <span class="chip">Scikit-Learn</span>
-            <span class="chip">Hugging Face</span>
-            <span class="chip">U-Net</span>
-            <span class="chip">Transfer Learning</span>
-            <span class="chip">Grad-CAM</span>
-            <span class="chip">Optuna</span>
-          </div>
-        </div>
 
         <div class="skill-group">
           <div class="skill-group-header">
@@ -1072,69 +1017,80 @@
             <span class="chip">Python</span>
             <span class="chip">SQL</span>
             <span class="chip">Java</span>
-            <span class="chip">C/C++</span>
+            <span class="chip">C / C++</span>
             <span class="chip">JavaScript</span>
-            <span class="chip">HTML/CSS</span>
+            <span class="chip">HTML / CSS</span>
           </div>
         </div>
 
-        <!-- FIX: React.js moved to its own Frontend section; backend stays clean -->
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon"><i class="fas fa-robot"></i></div>
+            <div class="skill-group-name">AI & LLM Systems</div>
+          </div>
+          <div class="skill-chips">
+            <span class="chip">LangGraph</span>
+            <span class="chip">LangChain</span>
+            <span class="chip">FastMCP</span>
+            <span class="chip">FAISS</span>
+            <span class="chip">BM25</span>
+            <span class="chip">Ollama</span>
+            <span class="chip">Sentence Transformers</span>
+            <span class="chip">Cross-Encoder Reranking</span>
+            <span class="chip">RAG Pipelines</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon"><i class="fas fa-brain"></i></div>
+            <div class="skill-group-name">ML & Deep Learning</div>
+          </div>
+          <div class="skill-chips">
+            <span class="chip">PyTorch</span>
+            <span class="chip">Scikit-Learn</span>
+            <span class="chip">TensorFlow</span>
+            <span class="chip">Hugging Face</span>
+            <span class="chip">Optuna</span>
+            <span class="chip">Grad-CAM</span>
+            <span class="chip">Transfer Learning</span>
+            <span class="chip">U-Net</span>
+          </div>
+        </div>
+
         <div class="skill-group">
           <div class="skill-group-header">
             <div class="skill-group-icon"><i class="fas fa-server"></i></div>
-            <div class="skill-group-name">Backend & APIs</div>
+            <div class="skill-group-name">MLOps & Backend</div>
           </div>
           <div class="skill-chips">
+            <span class="chip">MLflow</span>
+            <span class="chip">Docker</span>
             <span class="chip">FastAPI</span>
-            <span class="chip">Node.js</span>
-            <span class="chip">Flask</span>
-            <span class="chip">REST APIs</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">pytest</span>
             <span class="chip">Streamlit</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon"><i class="fas fa-desktop"></i></div>
-            <div class="skill-group-name">Frontend</div>
-          </div>
-          <div class="skill-chips">
+            <span class="chip">Node.js</span>
             <span class="chip">React.js</span>
-            <span class="chip">HTML/CSS</span>
-            <span class="chip">JavaScript (ES6+)</span>
-            <span class="chip">Responsive Design</span>
+            <span class="chip">REST APIs</span>
           </div>
         </div>
 
         <div class="skill-group">
           <div class="skill-group-header">
             <div class="skill-group-icon"><i class="fas fa-database"></i></div>
-            <div class="skill-group-name">Data & Databases</div>
+            <div class="skill-group-name">Data & Tools</div>
           </div>
           <div class="skill-chips">
-            <span class="chip">PostgreSQL</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">MongoDB</span>
-            <span class="chip">Power BI</span>
-            <span class="chip">DAX</span>
             <span class="chip">Pandas</span>
             <span class="chip">NumPy</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon"><i class="fas fa-tools"></i></div>
-            <div class="skill-group-name">Systems & Tools</div>
-          </div>
-          <div class="skill-chips">
-            <span class="chip">Docker</span>
-            <span class="chip">Git/GitHub</span>
-            <span class="chip">Linux</span>
-            <span class="chip">Shell Scripting</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">DAX</span>
             <span class="chip">OpenCV</span>
-            <span class="chip">Postman</span>
-            <span class="chip">Jupyter</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Git / GitHub</span>
+            <span class="chip">Shell Scripting</span>
           </div>
         </div>
 
@@ -1144,7 +1100,7 @@
 
   <hr class="h-rule">
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS — added Fraud Detection and Autonomous Data Analyst Agent -->
   <section id="projects" class="section">
     <div class="section-label">03 / work</div>
     <h2 class="section-title reveal">Featured <span>Projects</span></h2>
@@ -1159,7 +1115,7 @@
           <span class="ptag ptag-teal">MCP Server</span>
         </div>
         <div class="project-name">CodeIntel-RAG — Agentic Codebase Intelligence</div>
-        <p class="project-desc">Self-hosted agentic RAG platform for natural-language querying over Python, Java, JavaScript, TypeScript & C++ codebases. Custom 5-signal hybrid retrieval combining BGE embeddings + FAISS, BM25Okapi, structural call-graph traversal, file-metadata filtering, and name-token concept matching. LangGraph ReAct agent + spec-compliant FastMCP server with 5 tools including a Bandit + regex security scanner with CWE/OWASP Top 10 mapping. Compatible with Cursor and Continue.dev over SSE.</p>
+        <p class="project-desc">Self-hosted agentic RAG platform for natural-language querying over Python, Java, JavaScript, TypeScript & C++ codebases. Custom 5-signal hybrid retrieval combining BGE + FAISS embeddings, BM25, call-graph traversal, file-metadata filtering, and name-token concept matching. LangGraph ReAct agent + spec-compliant FastMCP server with 5 tools including a Bandit + regex security scanner with CWE/OWASP Top 10 mapping. Compatible with Cursor and Continue.dev over SSE. FastAPI backend with SSE streaming, query caching, Docker Compose, Whisper voice input, and interactive Pyvis call graphs.</p>
         <div>
           <span class="project-metric"><i class="fas fa-chart-line"></i> Hit@5: 1.00 · MRR: 0.845 · +8.7% vs semantic baseline</span>
         </div>
@@ -1171,60 +1127,59 @@
         </div>
       </div>
 
+      <!-- NEW: Fraud Detection ML Pipeline -->
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">MLOps</span>
+          <span class="ptag ptag-teal">Production ML</span>
+        </div>
+        <div class="project-name">End-to-End ML Pipeline — Credit Card Fraud Detection</div>
+        <p class="project-desc">Production ML pipeline for real-time fraud detection. Random Forest + SMOTE with full MLflow lifecycle: experiment tracking, model registry, FastAPI inference server with SHAP explainability and prediction caching. Drift detection via PSI + Kolmogorov-Smirnov with automated drift-triggered and scheduled retraining. Streamlit monitoring dashboard tracking fraud rate, latency, and live drift analysis across all deployed model versions.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-shield-alt"></i> 86.73% recall · ROC-AUC 0.9797 · −32% undetected fraud vs baseline</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack"><span>MLflow · Random Forest · SMOTE · FastAPI · SHAP · Docker · Streamlit</span></div>
+          <a href="https://github.com/AdithyaRaoK14/End-to-End-ML-Pipeline-with-MLflow" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- NEW: Autonomous Data Analyst Agent -->
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">Agentic AI</span>
+          <span class="ptag ptag-teal">Secure Sandbox</span>
+        </div>
+        <div class="project-name">Autonomous Data Analyst Agent</div>
+        <p class="project-desc">LangGraph ReAct agent that reasons over uploaded CSV datasets, dynamically generates Python analysis code, executes it in a secure sandbox, and retries automatically on failure. 3-layer sandbox with AST validation, restricted builtins, and subprocess isolation — blocks all dangerous operations including os, subprocess, eval, and filesystem writes. Disk-backed query cache with automatic invalidation and structured JSON-lines execution logging. 92-test suite enforced via GitHub Actions CI.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-vial"></i> 86% code coverage · 92 tests · GitHub Actions CI</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack"><span>LangGraph · LangChain · Ollama · Streamlit · pytest · GitHub Actions</span></div>
+          <a href="https://github.com/AdithyaRaoK14/Autonomous-Data-Analyst-Agent" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
       <!-- SCC Grading -->
       <div class="project-card reveal">
         <div class="project-tags">
           <span class="ptag ptag-amber">Medical AI</span>
           <span class="ptag ptag-teal">Deep Learning</span>
         </div>
-        <div class="project-name">SCC Grading from Histopathology</div>
-        <p class="project-desc">Benchmarked 5 CNN architectures for cancer classification and 3-class SCC grading. Applied CLAHE + Reinhard stain normalization, Optuna hyperparameter search (150 trials), and Grad-CAM for clinical interpretability. Deployed interactive Streamlit app with LLM-generated prediction summaries.</p>
+        <div class="project-name">SCC Grading from Histopathology Images</div>
+        <p class="project-desc">Benchmarked 5 CNN architectures across two clinical tasks: lung cancer subtype classification and 3-class SCC grading. Applied CLAHE + Reinhard stain normalisation, 150-trial Optuna hyperparameter search, and Grad-CAM for clinical interpretability. Deployed Streamlit app with real-time Grad-CAM visualisations and LLM-generated prediction summaries.</p>
         <div>
-          <span class="project-metric"><i class="fas fa-bullseye"></i> InceptionV3: 96.5% acc · EfficientNet-B0: 89.15% acc, ROC-AUC 0.93</span>
+          <span class="project-metric"><i class="fas fa-bullseye"></i> InceptionV3: 96.5% acc, F1 0.94 · EfficientNet-B0: 89.15% acc, ROC-AUC 0.93</span>
         </div>
         <div class="project-footer">
-          <div class="project-stack"><span>PyTorch · TensorFlow · Grad-CAM · Optuna · Streamlit</span></div>
+          <div class="project-stack"><span>PyTorch · Transfer Learning · Grad-CAM · Optuna · Streamlit</span></div>
           <div style="display:flex;gap:0.4rem;">
             <a href="https://github.com/AdithyaRaoK14/Lung-Cancer-Subtype-Classification" target="_blank" class="project-link" title="GitHub (Classification)"><i class="fab fa-github"></i></a>
             <a href="https://github.com/AdithyaRaoK14/SCC-Histopathology-Grading" target="_blank" class="project-link" title="GitHub (Grading)"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
-
-      <!-- Night Vision -->
-      <div class="project-card reveal">
-        <div class="project-tags">
-          <span class="ptag ptag-amber">Computer Vision</span>
-          <span class="ptag ptag-teal">Image Enhancement</span>
-        </div>
-        <div class="project-name">Night Vision Enhancement</div>
-        <p class="project-desc">Engineered two low-light enhancement pipelines — vanilla U-Net and ResNet34 encoder-decoder U-Net — trained on LOL (485 pairs) and ImageNet Night Vision (40K+ pairs). Combined MSE + SSIM loss with ColorJitter augmentation and residual learning.</p>
-        <div>
-          <span class="project-metric"><i class="fas fa-signal"></i> PSNR: 18.84 dB · SSIM: 0.71 on 5K test images</span>
-        </div>
-        <div class="project-footer">
-          <div class="project-stack"><span>PyTorch · U-Net · ResNet34 · OpenCV</span></div>
-          <a href="https://github.com/AdithyaRaoK14/Enhancing-Night-Vision-Using-ML" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-
-      <!-- FMCG Dashboard — FIX: properly closed card -->
-      <div class="project-card reveal">
-        <div class="project-tags">
-          <span class="ptag ptag-amber">Data Analytics</span>
-          <span class="ptag ptag-teal">Power BI</span>
-        </div>
-        <div class="project-name">FMCG Supply Chain Analytics</div>
-        <p class="project-desc">End-to-end Power BI dashboard tracking supply chain KPIs — OTIF, LIFR, VOFR — across 3 cities and 50+ product categories for Atliq Mart. Developed 20+ DAX measures and SQL-based ETL pipelines for root-cause analysis.</p>
-        <div>
-          <span class="project-metric"><i class="fas fa-exclamation-triangle"></i> Identified 15% fulfillment gap across key accounts</span>
-        </div>
-        <div class="project-footer">
-          <div class="project-stack"><span>Power BI · DAX · SQL · ETL Pipelines</span></div>
-          <a href="https://github.com/AdithyaRaoK14/Generate-Insights-to-Solve-a-Supply-Chain-Issue-in-the-FMCG-domain-Power-BI-Project" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <!-- END FMCG card (was missing closing tags here) -->
 
       <!-- SQL Injection — Published -->
       <div class="project-card reveal">
@@ -1246,6 +1201,40 @@
         </div>
       </div>
 
+      <!-- Night Vision -->
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">Computer Vision</span>
+          <span class="ptag ptag-teal">Image Enhancement</span>
+        </div>
+        <div class="project-name">Night Vision Enhancement</div>
+        <p class="project-desc">Two low-light enhancement pipelines — vanilla U-Net and ResNet34 encoder-decoder U-Net — trained on LOL (485 pairs) and ImageNet Night Vision (40K+ pairs). Combined MSE + SSIM loss with ColorJitter augmentation and residual learning.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-signal"></i> PSNR: 18.84 dB · SSIM: 0.71 on 5K test images</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack"><span>PyTorch · U-Net · ResNet34 · OpenCV</span></div>
+          <a href="https://github.com/AdithyaRaoK14/Enhancing-Night-Vision-Using-ML" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- FMCG Dashboard -->
+      <div class="project-card reveal">
+        <div class="project-tags">
+          <span class="ptag ptag-amber">Data Analytics</span>
+          <span class="ptag ptag-teal">Power BI</span>
+        </div>
+        <div class="project-name">FMCG Supply Chain Analytics</div>
+        <p class="project-desc">End-to-end Power BI dashboard tracking supply chain KPIs — OTIF, LIFR, VOFR — across 3 cities and 50+ product categories for Atliq Mart. 20+ DAX measures and SQL-based ETL pipelines for root-cause analysis.</p>
+        <div>
+          <span class="project-metric"><i class="fas fa-exclamation-triangle"></i> Identified 15% fulfillment gap across key accounts</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack"><span>Power BI · DAX · SQL · ETL Pipelines</span></div>
+          <a href="https://github.com/AdithyaRaoK14/Generate-Insights-to-Solve-a-Supply-Chain-Issue-in-the-FMCG-domain-Power-BI-Project" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
       <!-- Network Anomaly -->
       <div class="project-card reveal">
         <div class="project-tags">
@@ -1253,7 +1242,7 @@
           <span class="ptag ptag-teal">ML</span>
         </div>
         <div class="project-name">Network Anomaly Detection</div>
-        <p class="project-desc">Real-time network intrusion detection using ensemble ML methods for binary and multiclass threat classification. Designed feature engineering pipeline on NSL-KDD and CICIDS datasets.</p>
+        <p class="project-desc">Real-time network intrusion detection using ensemble ML for binary and multiclass threat classification. Feature engineering pipeline on NSL-KDD and CICIDS datasets.</p>
         <div class="project-footer">
           <div class="project-stack"><span>Random Forest · XGBoost · Python · Scikit-Learn</span></div>
           <a href="https://github.com/AdithyaRaoK14/Network-Anomaly-Detection-Using-ML-Models" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
@@ -1270,7 +1259,7 @@
 
   <hr class="h-rule">
 
-  <!-- EXPERIENCE -->
+  <!-- EXPERIENCE — updated Freelance bullets to match resume -->
   <section id="experience" class="section">
     <div class="section-label">04 / experience & education</div>
     <h2 class="section-title reveal">Timeline</h2>
@@ -1285,12 +1274,24 @@
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Dec 2024 – Mar 2025</div>
-        <div class="tl-title">Freelance Web Developer</div>
+        <div class="tl-title">Freelance Web Consultant</div>
         <div class="tl-org">Startup Client — Remote</div>
         <div class="tl-content">
           <ul>
-            <li>Built and deployed a responsive portfolio website for a landscape design startup — sole point of contact for architecture, design, and deployment decisions.</li>
-            <li>Iterated rapidly on client feedback; delivered within timeline.</li>
+            <li>Delivered an end-to-end website for a small business client; gathered requirements, proposed layout and content structure, and iterated on designs based on client feedback.</li>
+            <li>Managed client communication and cross-functional coordination to ensure the final product met business requirements across desktop and mobile.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color: var(--teal);"></div>
+        <div class="tl-date">Jun 2023 – Jul 2023</div>
+        <div class="tl-title">Full Stack Web Development Intern</div>
+        <div class="tl-org">Thaniya Technologies, Mangalore &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1gpWIF6nMw3gt4_coFMnshndd8oz0zEsp/view?usp=sharing" target="_blank" style="color:var(--amber);font-size:0.78rem;font-family:var(--font-mono);text-decoration:none;">View Certificate ↗</a></div>
+        <div class="tl-content">
+          <ul>
+            <li>Built and deployed a full-stack movie review and recommendation platform using React.js, Node.js, and PostgreSQL; shipped to production on Render.</li>
+            <li>Designed relational database schema, implemented REST APIs for all CRUD operations, and integrated backend services with the React frontend.</li>
           </ul>
         </div>
       </div>
@@ -1300,19 +1301,6 @@
         <div class="tl-title">B.Tech — Computer & Communication Engineering</div>
         <div class="tl-org">Manipal Institute of Technology (MIT), Manipal</div>
         <div class="tl-content"><p>CGPA: 7.06 / 10 &nbsp;·&nbsp; Focus: AI/ML, Cybersecurity, Full-Stack Development</p></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot" style="border-color: var(--teal);"></div>
-        <div class="tl-date">Jun 2023 – Jul 2023</div>
-        <div class="tl-title">Full Stack Web Development Intern</div>
-        <div class="tl-org">Thaniya Technologies, Mangalore &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1gpWIF6nMw3gt4_coFMnshndd8oz0zEsp/view?usp=sharing" target="_blank" style="color:var(--amber);font-size:0.78rem;font-family:var(--font-mono);text-decoration:none;">View Certificate ↗</a></div>
-        <div class="tl-content">
-          <ul>
-            <li>Built and deployed a full-stack movie recommendation platform using React.js, Node.js, and PostgreSQL; shipped to production on Render.</li>
-            <li>Designed relational database schema, implemented REST APIs for all CRUD operations, and integrated NLP-based sentiment review analysis.</li>
-            <li>Enhanced UI performance by 30% through optimisation techniques.</li>
-          </ul>
-        </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
@@ -1335,7 +1323,7 @@
       <div>
         <div class="pub-title">SQL Injection Detection: Comparative Study of SVM, RF and Hybrid Models</div>
         <div class="pub-meta">First Author &nbsp;·&nbsp; Taylor & Francis / CRC Press (ISBN: 9781003773504) &nbsp;·&nbsp; October 2025</div>
-        <p class="pub-desc">Published as a book chapter in <em>Connecting Intelligence: Trends in Computation and Data Communication</em>. Presented at ICCIDC 2025, Bali, Indonesia. Hybrid SVM-RF ensemble on 30,920 labeled SQL queries; BiLSTM model further validated sequence-based NLP for automated threat detection.</p>
+        <p class="pub-desc">Published as a book chapter in <em>Connecting Intelligence: Trends in Computation and Data Communication</em>. Presented at ICCIDC 2025, Bali, Indonesia. Hybrid SVM-RF ensemble achieved 97.84% accuracy on 30,920 labeled SQL queries; BiLSTM model further validated sequence-based NLP for automated threat detection.</p>
         <div class="pub-metrics">
           <span class="pub-metric">Accuracy: 97.84%</span>
           <span class="pub-metric">Precision: 98.09%</span>
@@ -1462,7 +1450,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <hr class="h-rule">
   <footer>
     <p>Crafted by <a href="mailto:aditykr142@gmail.com">Adithya Rao Kalathur</a> &nbsp;·&nbsp; © 2025</p>
@@ -1475,7 +1462,6 @@
   </footer>
 
   <script>
-    // ── Typing effect — trimmed to 3 focused roles ──
     const roles = [
       'ML Engineer',
       'Agentic AI Systems Builder',
@@ -1494,36 +1480,23 @@
     }
     type();
 
-    // ── Nav scroll border ──
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
     });
 
-    // ── Hamburger + overlay ──
-    const hb       = document.getElementById('hamburger');
-    const nl       = document.getElementById('navLinks');
-    const overlay  = document.getElementById('navOverlay');
+    const hb      = document.getElementById('hamburger');
+    const nl      = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
 
-    function openMenu() {
-      nl.classList.add('open');
-      overlay.classList.add('open');
-      hb.classList.add('open');
-    }
-    function closeMenu() {
-      nl.classList.remove('open');
-      overlay.classList.remove('open');
-      hb.classList.remove('open');
-    }
+    function openMenu()  { nl.classList.add('open'); overlay.classList.add('open'); hb.classList.add('open'); }
+    function closeMenu() { nl.classList.remove('open'); overlay.classList.remove('open'); hb.classList.remove('open'); }
 
     hb.addEventListener('click', () => nl.classList.contains('open') ? closeMenu() : openMenu());
     overlay.addEventListener('click', closeMenu);
     nl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-    // ── Intersection Observer for reveal + timeline ──
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal, .tl-item').forEach(el => io.observe(el));
